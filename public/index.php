@@ -6,8 +6,9 @@ use Phalcon\Loader;
 use Phalcon\Mvc\Router;
 use Phalcon\DI\FactoryDefault;
 use Phalcon\Mvc\Application as BaseApplication;
+use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Url;
-
+define('APP_PATH', realpath('..') . '/');
 class Application extends BaseApplication
 {
 
@@ -67,10 +68,39 @@ class Application extends BaseApplication
 		
 		$di->set('url', function () {
 		    $url = new Url();
-		    $url->setBaseUri('/multiple');
+		    $url->setBaseUri('/multiple/');
 		    return $url;
 		});
-				
+		/*$di->set('view', function () use ($config) {
+
+        	$view = new View();
+
+        	$view->setViewsDir(APP_PATH . $config->application->viewsDir);
+
+        	$view->registerEngines(array(
+            		".volt" => 'volt'
+            	));
+
+            	return $view;
+        });*/
+
+        /**
+         * Setting up volt
+         */
+        /*$di->set('volt', function ($view, $di) {
+
+        	$volt = new VoltEngine($view, $di);
+
+        	$volt->setOptions(array(
+        		"compiledPath" => APP_PATH . "cache/volt/"
+        	));
+
+        	$compiler = $volt->getCompiler();
+        	$compiler->addFunction('is_a', 'is_a');
+
+        	return $volt;
+        }, true);*/
+		
 		$this->setDI($di);
 	}
 

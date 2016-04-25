@@ -5,7 +5,7 @@ namespace Multiple\Frontend;
 use Phalcon\Loader;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Db\Adapter\Pdo\Mysql;
-
+use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 class Module
 {
 
@@ -44,9 +44,25 @@ class Module
 		//Registering the view component
 		$di->set('view', function () {
 			$view = new \Phalcon\Mvc\View();
-			$view->setViewsDir('../apps/frontend/views/');
+			$view->setViewsDir('../apps/frontend/views/template1');
+            /*$view->registerEngines(array(
+            		".volt" => 'volt'
+            	));*/
 			return $view;
 		});
+        /*$di->set('volt', function ($view, $di) {
+
+        	$volt = new VoltEngine($view, $di);
+
+        	$volt->setOptions(array(
+        		"compiledPath" => APP_PATH . "cache/volt/"
+        	));
+
+        	$compiler = $volt->getCompiler();
+        	$compiler->addFunction('is_a', 'is_a');
+
+        	return $volt;
+        }, true);*/
 
 		$di->set('db', function () {
 			return new Database(array(

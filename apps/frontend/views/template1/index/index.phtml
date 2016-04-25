@@ -1,0 +1,52 @@
+
+<?php //echo $name; ?>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <?php //get_title() ?>     
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Your invoices">
+        <meta name="author" content="Phalcon Team">
+        <link rel='stylesheet' id='Roboto-css'  href='http://fonts.googleapis.com/css?family=Roboto' type='text/css' media='all' />       
+        <?php $this->tag->stylesheetLink('template1/css/style.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/swipemenu.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/flexslider.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/bootstrap.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/bootstrap-responsive.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/jquery.simplyscroll.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/jPages.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/jquery.rating.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/ie.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/style.css') ?>
+        <?php $this->tag->stylesheetLink('template1/css/style.css') ?>
+        
+        <?php $this->tag->javascriptInclude('template1/js/jquery-1.10.2.min.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/html5.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/bootstrap.min.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.flexslider.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.flexslider.init.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.bxslider.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.bxslider.init.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.rating.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.idTabs.min.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.simplyscroll.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/fluidvids.min.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jPages.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.sidr.min.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/jquery.touchSwipe.min.js') ?>
+        <?php $this->tag->javascriptInclude('template1/js/custom.js') ?>
+        
+
+    </head>
+    <body>
+        <div id="page">
+        <?php $this->partial('include/menu');?>
+        <?php $this->getContent() ?>   
+        </div>  
+          
+        <?php echo $this->url->get('products/test');?>
+    </body>
+</html>
+
