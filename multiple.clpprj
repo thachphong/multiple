@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="D:\xampp\htdocs\multiple\multiple.clpprj">
+	<settings><PM_URL><![CDATA[http://localhost/vnframework/]]></PM_URL><PM_HOME_URL><![CDATA[http://localhost/vnframework/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><lastopfiles>
+	</lastopfiles>
+	<errors version="4.5">
+	</errors>
+	<codestructure version="5.0">
+		<phptree>
+			<treenode node="Acl;PHP:Class Name;D:\xampp\htdocs\multiple\apps\library\Acl.php;f0;5;17;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
+			<treenode node="Application;PHP:Class Name;D:\xampp\htdocs\multiple\public\index.php;f0;10;1;96;;;;vpos;;vBaseApplication;;c;;r;;d0,11;;b0,0;;m">
+				<treenode node="main;PHP:Function Name;D:\xampp\htdocs\multiple\public\index.php;f8;76;2;94;;;;vpos;;v;;r;;d1,77;;b1,0;;m">
+					<treenode node="this;PHP:Var Name;D:\xampp\htdocs\multiple\public\index.php;f2;79;7;79;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="registerServices;PHP:Function Name;D:\xampp\htdocs\multiple\public\index.php;f11;16;2;74;;;;vpos;;v;;r&#xA;Description&#xA;     Register the services here to make them general or register in the ModuleDefinition to make them module-specific;;d1,17;;b2,0;;m">
+					<treenode node="di;PHP:Var Name;D:\xampp\htdocs\multiple\public\index.php;f2;19;5;19;;;;vposFactoryDefault;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="loader;PHP:Var Name;D:\xampp\htdocs\multiple\public\index.php;f2;21;9;21;;;;vposLoader;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="router;PHP:Var Name;D:\xampp\htdocs\multiple\public\index.php;f3;35;10;35;;;;vposRouter;;v;;r&#xA;Description&#xA;     We're a registering a set of directories taken from the configuration file;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;D:\xampp\htdocs\multiple\public\index.php;f2;73;7;73;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="url;PHP:Var Name;D:\xampp\htdocs\multiple\public\index.php;f6;68;10;68;;;;vposUrl;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+			</treenode>
+			<treenode node="IndexController;PHP:Class Name;D:\xampp\htdocs\multiple\apps\backend\controllers\IndexController.php;f0;6;1;13;;D:\xampp\htdocs\multiple\apps\frontend\controllers\IndexController.php;f0;6;1;13;;;;vpos;;vController;;c;;r;;d0,7;;b0,0;;m">
+				<treenode node="indexAction;PHP:Function Name;D:\xampp\htdocs\multiple\apps\backend\controllers\IndexController.php;f8;9;2;12;;D:\xampp\htdocs\multiple\apps\frontend\controllers\IndexController.php;f8;9;2;12;;;;vpos;;v;;r;;d1,10;;b1,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="LoginController;PHP:Class Name;D:\xampp\htdocs\multiple\apps\backend\controllers\LoginController.php;f0;6;1;13;;;;vpos;;vController;;c;;r;;d0,7;;b0,0;;m">
+				<treenode node="indexAction;PHP:Function Name;D:\xampp\htdocs\multiple\apps\backend\controllers\LoginController.php;f8;9;2;12;;;;vpos;;v;;r;;d1,10;;b1,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="Module;PHP:Class Name;D:\xampp\htdocs\multiple\apps\backend\Module.php;f0;10;1;57;;D:\xampp\htdocs\multiple\apps\frontend\Module.php;f0;8;1;59;;;;vpos;;v;;r;;d0,9;;b0,0;;m">
+				<treenode node="registerAutoloaders;PHP:Function Name;D:\xampp\htdocs\multiple\apps\backend\Module.php;f8;13;2;25;;D:\xampp\htdocs\multiple\apps\frontend\Module.php;f8;11;2;22;;;;vpos;;v;;r;;d1,12;;b1,0;;m">
+					<treenode node="loader;PHP:Var Name;D:\xampp\htdocs\multiple\apps\frontend\Module.php;f2;14;9;14;;;;vposLoader;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="registerServices;PHP:Function Name;D:\xampp\htdocs\multiple\apps\backend\Module.php;f8;30;2;56;;D:\xampp\htdocs\multiple\apps\frontend\Module.php;f8;27;2;58;;;;vpos;;v;;r&#xA;Description&#xA;     Register the services here to make them general or register in the ModuleDefinition to make them module-specific;;d1,28;;b1,0;;mdi;;p">
+					<treenode node="di;PHP:Var Name;D:\xampp\htdocs\multiple\apps\backend\Module.php;f46;30;49;30;;D:\xampp\htdocs\multiple\apps\frontend\Module.php;f34;27;37;27;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="dispatcher;PHP:Var Name;D:\xampp\htdocs\multiple\apps\frontend\Module.php;f3;32;14;32;;;;vposDispatcher;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="eventManager;PHP:Var Name;D:\xampp\htdocs\multiple\apps\frontend\Module.php;f3;35;16;35;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="view;PHP:Var Name;D:\xampp\htdocs\multiple\apps\frontend\Module.php;f3;45;8;45;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+			</treenode>
+			<treenode node="Products;PHP:Class Name;D:\xampp\htdocs\multiple\apps\backend\models\Products.php;f0;6;1;9;;D:\xampp\htdocs\multiple\apps\frontend\models\Products.php;f0;4;1;7;;;;vpos;;vModel;;c;;r;;d0,5;;b0,0;;m">
+			</treenode>
+			<treenode node="ProductsController;PHP:Class Name;D:\xampp\htdocs\multiple\apps\backend\controllers\ProductsController.php;f0;7;1;14;;D:\xampp\htdocs\multiple\apps\frontend\controllers\ProductsController.php;f0;6;1;21;;;;vpos;;vController;;c;;r;;d0,7;;b0,0;;m">
+				<treenode node="indexAction;PHP:Function Name;D:\xampp\htdocs\multiple\apps\backend\controllers\ProductsController.php;f8;10;2;13;;D:\xampp\htdocs\multiple\apps\frontend\controllers\ProductsController.php;f8;9;2;16;;;;vpos;;v;;r;;d1,10;;b1,0;;m">
+					<treenode node="this;PHP:Var Name;D:\xampp\htdocs\multiple\apps\frontend\controllers\ProductsController.php;f2;12;7;12;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="testAction;PHP:Function Name;D:\xampp\htdocs\multiple\apps\frontend\controllers\ProductsController.php;f8;17;2;20;;;;vpos;;v;;r;;d1,18;;b1,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="UsersController;PHP:Class Name;D:\xampp\htdocs\multiple\apps\frontend\controllers\UsersController.php;f0;6;1;13;;;;vpos;;vController;;c;;r;;d0,7;;b0,0;;m">
+				<treenode node="indexAction;PHP:Function Name;D:\xampp\htdocs\multiple\apps\frontend\controllers\UsersController.php;f8;9;2;12;;;;vpos;;v;;r;;d1,10;;b1,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="__construct;PHP:Function Name;D:\xampp\htdocs\multiple\apps\library\Acl.php;f8;10;2;13;;;;vpos;;v;;r;;d1,11;;b1,0;;mmodule;;p">
+				<treenode node="module;PHP:Var Name;D:\xampp\htdocs\multiple\apps\library\Acl.php;f29;10;36;10;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="beforeExecuteRoute;PHP:Function Name;D:\xampp\htdocs\multiple\apps\library\Acl.php;f8;15;2;19;;;;vpos;;v;;r;;d1,16;;b1,0;;mevent;;pdispatcher;;p">
+				<treenode node="dispatcher;PHP:Var Name;D:\xampp\htdocs\multiple\apps\library\Acl.php;f61;15;72;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="event;PHP:Var Name;D:\xampp\htdocs\multiple\apps\library\Acl.php;f42;15;48;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="_module;PHP:Var Name;D:\xampp\htdocs\multiple\apps\library\Acl.php;f11;8;19;8;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+			</treenode>
+			<treenode node="application;PHP:Var Name;D:\xampp\htdocs\multiple\public\index.php;f0;98;12;98;;;;vposApplication;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
+			<treenode node="name;PHP:Var Name;D:\xampp\htdocs\multiple\apps\frontend\views\products\index.phtml;f11;3;16;3;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
+			<treenode node="product;PHP:Var Name;D:\xampp\htdocs\multiple\apps\backend\views\products\index.phtml;f11;2;19;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
+			<treenode node="url;PHP:Var Name;D:\xampp\htdocs\multiple\apps\frontend\views\products\index.phtml;f11;4;15;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
+		</phptree>
+		<jstree>
+		</jstree>
+		<scsstree>
+		</scsstree>
+		<lesstree>
+		</lesstree>
+	</codestructure><cakedata>
+	</cakedata>
+	<dplmenupath>
+	</dplmenupath><laravael>
+	</laravael><smartyassings>
+	</smartyassings><twigtemplate>
+	</twigtemplate><yiidata>
+	</yiidata>
+	<todoblock>
+	</todoblock>
+	<dbgurls>
+	</dbgurls>
+	<filescache>
+		<file name="D:\xampp\htdocs\multiple\public\index.php" crc="-386394060"/>
+		<file name="D:\xampp\htdocs\multiple\public\.htaccess" crc="-1642243283"/>
+		<file name="D:\xampp\htdocs\multiple\apps\library\Acl.php" crc="2001774268"/>
+		<file name="D:\xampp\htdocs\multiple\apps\frontend\views\products\index.phtml" crc="103016976"/>
+		<file name="D:\xampp\htdocs\multiple\apps\frontend\models\Products.php" crc="-414504724"/>
+		<file name="D:\xampp\htdocs\multiple\apps\frontend\controllers\UsersController.php" crc="832200026"/>
+		<file name="D:\xampp\htdocs\multiple\apps\frontend\controllers\ProductsController.php" crc="-2021136094"/>
+		<file name="D:\xampp\htdocs\multiple\apps\frontend\controllers\IndexController.php" crc="1837866588"/>
+		<file name="D:\xampp\htdocs\multiple\apps\frontend\Module.php" crc="640344235"/>
+		<file name="D:\xampp\htdocs\multiple\apps\backend\views\products\index.phtml" crc="-1028692884"/>
+		<file name="D:\xampp\htdocs\multiple\apps\backend\views\login\index.phtml" crc="-1658826231"/>
+		<file name="D:\xampp\htdocs\multiple\apps\backend\models\Products.php" crc="-606415281"/>
+		<file name="D:\xampp\htdocs\multiple\apps\backend\controllers\ProductsController.php" crc="-205356505"/>
+		<file name="D:\xampp\htdocs\multiple\apps\backend\controllers\LoginController.php" crc="64911816"/>
+		<file name="D:\xampp\htdocs\multiple\apps\backend\controllers\IndexController.php" crc="-168285791"/>
+		<file name="D:\xampp\htdocs\multiple\apps\backend\Module.php" crc="1599315939"/>
+		<file name="D:\xampp\htdocs\multiple\.htaccess" crc="2138155422"/>
+	</filescache>
+</project>
