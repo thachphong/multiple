@@ -76,44 +76,53 @@ class Elements extends Component
      */
     public function getMenu()
     {
-        $list_menu = $this->db->fetchAll("SELECT t.*,'0' as chk ,(select count(*) from menu m where m.parent = t.id) have_child FROM menu t WHERE status = :status",
-            Phalcon\Db::FETCH_ASSOC,
-            array('status' => '1')
-        );
-        foreach($list_menu as $key=>$row){
-            if($row['have_child']>0 && $list_menu[$key]['chk']=='0'){
-                echo '<li class="dropdown">'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']);
-                echo '<ul class="sub-menu">';
-                foreach($list_menu as $key1=>$sub){
-                    if($sub['parent']==$row['id'] && $list_menu[$key1]['chk']=='0' ){
-                        if($sub['have_child']>0){
-                            echo '<li class="dropdown">'.$this->tag->linkTo( 'category/view?id=' . $sub['id'], $sub['title']);
-                            echo '<ul class="sub-menu">';
-                            foreach($list_menu as $key2=>$sub2){
-                                if($sub2['parent']==$sub['id'] && $list_menu[$key2]['chk']=='0' ){
-                                    echo '<li>'.$this->tag->linkTo( 'category/view?id=' . $sub2['id'], $sub2['title']).'</li>';
-                                    $list_menu[$key2]['chk']='1';
-                                }
-                            }
-                            echo '</ul>';
-                            $list_menu[$key1]['chk']='1';
-                        }else{
-                            if($list_menu[$key1]['chk']=='0'){
-                                echo '<li>'.$this->tag->linkTo( 'category/view?id=' . $sub['id'], $sub['title']).'</li>';
-                                $list_menu[$key1]['chk']='1';
-                            }
-                        }
-                    }
-                }
-                echo '</ul>';
-                $list_menu[$key]['chk']='1';
-            }else{
-                if($list_menu[$key]['chk']=='0'){
-                    echo '<li>'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']).'</li>';
-                    $list_menu[$key]['chk']='1';
-                }                            
-            }
-        }
+    	$cacheKey = 'menu';
+		$menu_data  = $this->dataCache->get($cacheKey);
+		if ($menu_data === null) {
+			$menu_data ='';
+		    $list_menu = $this->db->fetchAll("SELECT t.*,'0' as chk ,(select count(*) from menu m where m.parent = t.id) have_child FROM menu t WHERE status = :status",            Phalcon\Db::FETCH_ASSOC,            array('status' => '1'));
+	        foreach($list_menu as $key=>$row){
+	            if($row['have_child']>0 && $list_menu[$key]['chk']=='0'){
+	                $menu_data .= '<li class="dropdown">'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']);
+	                $menu_data .= '<ul class="sub-menu">';
+	                foreach($list_menu as $key1=>$sub){
+	                    if($sub['parent']==$row['id'] && $list_menu[$key1]['chk']=='0' ){
+	                        if($sub['have_child']>0){
+	                            $menu_data .= '<li class="dropdown">'.$this->tag->linkTo( 'category/view?id=' . $sub['id'], $sub['title']);
+	                            $menu_data .= '<ul class="sub-menu">';
+	                            foreach($list_menu as $key2=>$sub2){
+	                                if($sub2['parent']==$sub['id'] && $list_menu[$key2]['chk']=='0' ){
+	                                    $menu_data .= '<li>'.$this->tag->linkTo( 'category/view?id=' . $sub2['id'], $sub2['title']).'</li>';
+	                                    $list_menu[$key2]['chk']='1';
+	                                }
+	                            }
+	                            $menu_data .= '</ul>';
+	                            $list_menu[$key1]['chk']='1';
+	                        }else{
+	                            if($list_menu[$key1]['chk']=='0'){
+	                                $menu_data .= '<li>'.$this->tag->linkTo( 'category/view?id=' . $sub['id'], $sub['title']).'</li>';
+	                                $list_menu[$key1]['chk']='1';
+	                            }
+	                        }
+	                    }
+	                }
+	                $menu_data .= '</ul>';
+	                $list_menu[$key]['chk']='1';
+	            }else{
+	                if($list_menu[$key]['chk']=='0'){
+	                    $menu_data .= '<li>'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']).'</li>';
+	                    $list_menu[$key]['chk']='1';
+	                }                            
+	            }
+	        }
+		    // Store it in the cache
+		    $this->dataCache->save($cacheKey, $menu_data);
+		    
+		}
+		echo $menu_data;
+
+
+        
         /*
         $auth = $this->session->get('auth');
         if ($auth) {

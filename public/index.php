@@ -8,6 +8,9 @@ use Phalcon\DI\FactoryDefault;
 use Phalcon\Mvc\Application as BaseApplication;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Url;
+use Phalcon\Cache\Backend\File as BackFile;
+use Phalcon\Cache\Frontend\Data as FrontData;
+
 define('APP_PATH', realpath('..') . '/');
 class Application extends BaseApplication
 {
@@ -74,6 +77,11 @@ class Application extends BaseApplication
 
 	        return $cache;
     	});
+    	$di->set('dataCache', function(){
+			$frontCache = new FrontData(array("lifetime" => 172800  ));		
+			$cache = new BackFile(   $frontCache,   array("cacheDir" => "/../var/data/" ));
+		});
+		
 		$di->set('url', function () {
 		    $url = new Url();
 		    $url->setBaseUri('/multiple/');
