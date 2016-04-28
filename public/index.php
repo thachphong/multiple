@@ -65,11 +65,22 @@ class Application extends BaseApplication
 			return $router;
 
 		});		
-		
+		$di->set('viewCache', function(){
+	        //Cache data for one day by default
+	        $frontCache = new FrontendCache(["lifetime" => 86400]);
+
+	        //File backend settings
+	        $cache = new BackendCache($frontCache, ["cacheDir" => __DIR__."/../var/cache/",]);
+
+	        return $cache;
+    	});
 		$di->set('url', function () {
 		    $url = new Url();
 		    $url->setBaseUri('/multiple/');
 		    return $url;
+		});
+		$di->set('elements', function () {
+			return new Elements();
 		});
 		/*$di->set('view', function () use ($config) {
 
