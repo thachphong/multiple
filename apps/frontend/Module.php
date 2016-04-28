@@ -4,8 +4,10 @@ namespace Multiple\Frontend;
 
 use Phalcon\Loader;
 use Phalcon\Mvc\Dispatcher;
-use Phalcon\Db\Adapter\Pdo\Mysql;
-use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
+use Phalcon\Db\Adapter\Pdo\Mysql as Database;
+use Phalcon\Mvc\View\Engine\Volt ;
+use Phalcon\Mvc\View;
+
 class Module
 {
 
@@ -42,14 +44,12 @@ class Module
 		});
 
 		//Registering the view component
-		$di->set('view', function () {
+		/*$di->set('view', function () {
 			$view = new \Phalcon\Mvc\View();
 			$view->setViewsDir('../apps/frontend/views/template1');
-            /*$view->registerEngines(array(
-            		".volt" => 'volt'
-            	));*/
+            
 			return $view;
-		});
+		});*/
         /*$di->set('volt', function ($view, $di) {
 
         	$volt = new VoltEngine($view, $di);
@@ -63,14 +63,40 @@ class Module
 
         	return $volt;
         }, true);*/
+		$di->set('view', function() {
+            $view = new View();
 
+            $view->setViewsDir(__DIR__.'/views/tempate1');
+            $view->setTemplateBefore('main');
+
+            $view->registerEngines([
+                ".volt" => function($view, $di) {
+
+                    $volt = new Volt($view, $di);
+
+                    $volt->setOptions([
+                        'compiledPath' => function ($templatePath) {
+                            return realpath(__DIR__."/../../var/volt") . '/' . md5($templatePath) . '.php';
+                        },
+                        'compiledExtension' => '.php',
+                        'compiledSeparator' => '%'
+                    ]);
+
+                    return $volt;
+                }
+            ]);
+
+            return $view;
+
+        });
 		$di->set('db', function () {
 			return new Database(array(
 				"host" => "localhost",
 				"username" => "root",
-				"password" => "secret",
-				"dbname" => "invo"
+				"password" => "",
+				"dbname" => "album"
 			));
 		});
+		
 	}
 }
