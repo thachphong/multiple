@@ -10,7 +10,7 @@ use Phalcon\Mvc\User\Component;
 class Elements extends Component
 {
 
-    private $_headerMenu = array(
+    private $_adminMenu = array(
         'navbar-left' => array(
             'index' => array(
                 'caption' => 'Home',
@@ -151,7 +151,34 @@ class Elements extends Component
         }*/
 
     }
-
+	public function getAdminMenu(){
+		
+        $auth = $this->session->get('auth');
+        if ($auth) {
+            $this->_adminMenu['navbar-right']['session'] = array(
+                'caption' => 'Log Out',
+                'action' => 'end'
+            );
+        } else {
+            unset($this->_adminMenu['navbar-left']['invoices']);
+        }
+        $controllerName = $this->view->getControllerName();
+        foreach ($this->_adminMenu as $position => $menu) {
+            echo '<div class="nav-collapse">';
+            echo '<ul class="nav navbar-nav ', $position, '">';
+            foreach ($menu as $controller => $option) {
+                if ($controllerName == $controller) {
+                    echo '<li class="active">';
+                } else {
+                    echo '<li>';
+                }
+                echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
+                echo '</li>';
+            }
+            echo '</ul>';
+            echo '</div>';
+        }
+	}
     /**
      * Returns menu tabs
      */
