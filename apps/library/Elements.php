@@ -76,7 +76,7 @@ class Elements extends Component
      */
     public function getMenu()
     {
-    	$cacheKey = 'menu';
+    	$cacheKey = 'menu.cache';
 		$menu_data  = $this->dataCache->get($cacheKey);
 		if ($menu_data === null) {
 			$menu_data ='';
