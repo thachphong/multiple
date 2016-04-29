@@ -16,6 +16,9 @@ use Phalcon\Cache\Backend\File as BackFile;
 use Phalcon\Cache\Frontend\Data as FrontData;
 
 define('APP_PATH', realpath('..') . '/');
+define('IMG_DATA_PATH',APP_PATH. 'images/');
+define('BASE_URL_NAME', '/multiple/');
+
 class Application extends BaseApplication
 {
 
@@ -34,7 +37,8 @@ class Application extends BaseApplication
 		 */
 		$loader->registerDirs(
 			array(
-				__DIR__ . '/../apps/library/'
+				__DIR__ . '/../apps/library/',
+				__DIR__ . '/../apps/common/'
 			)
 		)->register();
 
@@ -89,7 +93,7 @@ class Application extends BaseApplication
 		
 		$di->set('url', function () {
 		    $url = new Url();
-		    $url->setBaseUri('/multiple/');
+		    $url->setBaseUri(BASE_URL_NAME);
 		    return $url;
 		});
 		/**
