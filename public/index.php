@@ -8,6 +8,8 @@ use Phalcon\DI\FactoryDefault;
 use Phalcon\Mvc\Application as BaseApplication;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Url;
+use Phalcon\Logger\Adapter\File as FileLogger;
+use Phalcon\Logger;
 use Phalcon\Cache\Frontend\Output as FrontendCache;
 //use Phalcon\Cache\Backend\File as BackendCache;
 use Phalcon\Cache\Backend\File as BackFile;
@@ -37,7 +39,8 @@ class Application extends BaseApplication
 		)->register();
 
 		//Registering a router
-		$di->set('router', function(){
+		$di->set('router', require __DIR__.'/../config/routes.php');
+		/*$di->set('router', function(){
 
 			$router = new Router();
 
@@ -69,11 +72,10 @@ class Application extends BaseApplication
 
 			return $router;
 
-		});		
+		});*/		
 		$di->set('viewCache', function(){
 	        //Cache data for one day by default
 	        $frontCache = new FrontendCache(["lifetime" => 86400]);
-
 	        //File backend settings
 	        $cache = new BackFile($frontCache, ["cacheDir" => __DIR__."/../var/cache/",]);
 
@@ -81,7 +83,7 @@ class Application extends BaseApplication
     	});
     	$di->set('dataCache', function(){
 			$frontCache = new FrontData(array("lifetime" => 172800  ));		
-			$cache = new BackFile(   $frontCache,   array("cacheDir" => __DIR__."/../var/data/" ));
+			$cache = new BackFile($frontCache,   array("cacheDir" => __DIR__."/../var/data/" ));
 			return $cache;
 		});
 		
@@ -90,6 +92,27 @@ class Application extends BaseApplication
 		    $url->setBaseUri('/multiple/');
 		    return $url;
 		});
+		/**
+	     * Main logger file
+	     */
+	    $di->set('logger', function() {
+	        return new FileLogger(__DIR__.'/../var/logs/'.date('Y-m-d').'.log');
+	    }, true);
+
+	    /**
+	     * Error handler
+	     */
+	    set_error_handler(function($errno, $errstr, $errfile, $errline) use ($di) {
+	        if (!(error_reporting() & $errno)) {
+	            return;
+	        }
+
+	        $di->getFlash()->error($errstr);
+	        $di->getLogger()->log($errstr.' '.$errfile.':'.$errline, Logger::ERROR);
+
+	        return true;
+	    });
+
 		$di->set('elements', function () {
 			return new Elements();
 		});
