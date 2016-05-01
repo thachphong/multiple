@@ -32,11 +32,15 @@ class Elements extends Component
                 'caption' => 'news',
                 'action' => 'index'
             ),
+            'download' => array(
+                'caption' => 'Download',
+                'action' => 'index'
+            ),
         ),
         'navbar-right' => array(
-            'session' => array(
+            'useradm' => array(
                 'caption' => 'Log In/Sign Up',
-                'action' => 'index'
+                'action' => 'login'
             ),
         )
     );
@@ -163,8 +167,9 @@ class Elements extends Component
             unset($this->_adminMenu['navbar-left']['invoices']);
         }
         $controllerName = $this->view->getControllerName();
+        echo '<div class="collapse navbar-collapse">';
         foreach ($this->_adminMenu as $position => $menu) {
-            echo '<div class="nav-collapse">';
+            
             echo '<ul class="nav navbar-nav ', $position, '">';
             foreach ($menu as $controller => $option) {
                 if ($controllerName == $controller) {
@@ -176,8 +181,9 @@ class Elements extends Component
                 echo '</li>';
             }
             echo '</ul>';
-            echo '</div>';
+            
         }
+        echo '</div>';
 	}
     /**
      * Returns menu tabs

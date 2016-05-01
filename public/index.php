@@ -14,6 +14,8 @@ use Phalcon\Cache\Frontend\Output as FrontendCache;
 //use Phalcon\Cache\Backend\File as BackendCache;
 use Phalcon\Cache\Backend\File as BackFile;
 use Phalcon\Cache\Frontend\Data as FrontData;
+use Phalcon\Mvc\Dispatcher;
+use Phalcon\Db\Adapter\Pdo\Mysql as Database;
 
 define('APP_PATH', realpath('..') . '/');
 define('IMG_DATA_PATH',APP_PATH. 'images/');
@@ -90,7 +92,20 @@ class Application extends BaseApplication
 			$cache = new BackFile($frontCache,   array("cacheDir" => __DIR__."/../var/data/" ));
 			return $cache;
 		});
-		
+		$di->set('dispatcher', function (){
+
+        	$eventsManager = new EventsManager;
+        	$eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
+
+        	
+        	$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
+
+        	$dispatcher = new Dispatcher;
+        	$dispatcher->setEventsManager($eventsManager);
+
+        	return $dispatcher;
+        });
+        
 		$di->set('url', function () {
 		    $url = new Url();
 		    $url->setBaseUri(BASE_URL_NAME);
@@ -119,6 +134,14 @@ class Application extends BaseApplication
 
 		$di->set('elements', function () {
 			return new Elements();
+		});
+        $di->set('db', function() {
+			return new Database(array(
+				"host" => "localhost",
+				"username" => "root",
+				"password" => "",
+				"dbname" => "multiple"
+			));
 		});
 		/*$di->set('view', function () use ($config) {
 

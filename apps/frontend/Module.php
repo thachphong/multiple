@@ -18,7 +18,7 @@ class Module
 
 		$loader->registerNamespaces(array(
 			'Multiple\Frontend\Controllers' => '../apps/frontend/controllers/',
-			'Multiple\Frontend\Models' => '../apps/frontend/models/',
+			'Multiple\Models' => '../apps/models/',
 		));
 
 		$loader->register();
@@ -89,14 +89,14 @@ class Module
             return $view;
 
         });
-		$di->set('db', function () {
+		/*$di->set('db', function () {
 			return new Database(array(
 				"host" => "localhost",
 				"username" => "root",
 				"password" => "",
-				"dbname" => "album"
+				"dbname" => "multiple"
 			));
-		});
+		});*/
 		
 	}
 }

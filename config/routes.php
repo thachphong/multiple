@@ -40,7 +40,11 @@ $router->removeExtraSlashes(true);
 				'controller' => 'download',
 				'action' => 1,
 			));
-			
+			$router->add("/useradm/:action", array(
+				'module' => 'backend',
+				'controller' => 'useradm',
+				'action' => 1,
+			));
 
 			return $router;
 

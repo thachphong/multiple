@@ -7,6 +7,7 @@ use Phalcon\Mvc\View;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\DiInterface;
 use Phalcon\Db\Adapter\Pdo\Mysql as Database;
+use Phalcon\Mvc\View\Engine\Volt ;
 
 class Module
 {
@@ -18,7 +19,7 @@ class Module
 
 		$loader->registerNamespaces(array(
 			'Multiple\Backend\Controllers' => '../apps/backend/controllers/',
-			'Multiple\Backend\Models'      => '../apps/backend/models/',
+			'Multiple\Models'      => '../apps/models/',
 			'Multiple\Backend\Plugins'     => '../apps/backend/plugins/',
 		));
 
@@ -42,17 +43,37 @@ class Module
 		$di->set('view', function() {
 			$view = new View();
 			$view->setViewsDir('../apps/backend/views/');
-			return $view;
+            $view->setTemplateBefore('main');
+
+            $view->registerEngines([
+                ".volt" => function($view, $di) {
+
+                    $volt = new Volt($view, $di);
+
+                    $volt->setOptions([
+                        'compiledPath' => function ($templatePath) {
+                            return realpath(__DIR__."/../../var/volt") . '/' . md5($templatePath) . '.php';
+                        },
+                        'compiledExtension' => '.php',
+                        'compiledSeparator' => '%'
+                    ]);
+
+                    return $volt;
+                }
+            ]);
+
+            return $view;
+			//return $view;
 		});
 
 		//Set a different connection in each module
-		$di->set('db', function() {
+		/*$di->set('db', function() {
 			return new Database(array(
 				"host" => "localhost",
 				"username" => "root",
-				"password" => "secret",
-				"dbname" => "invo"
+				"password" => "",
+				"dbname" => "multiple"
 			));
-		});
+		});*/
 	}
 }

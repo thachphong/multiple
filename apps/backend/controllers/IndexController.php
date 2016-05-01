@@ -9,6 +9,7 @@ class IndexController extends Controller
 
 	public function indexAction()
 	{
-		return $this->response->forward('login');
+		//return $this->response->forward('login');
+        $this->view->name= 'aaaa';
 	}
 }
