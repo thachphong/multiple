@@ -19,9 +19,14 @@ class UserAdmController extends Controller
     public function loginAction()
 	{
 		//$this->view->disable();
+        $this->view->setVar('pass', sha1('admin'));
+        //$this->view->pass= sha1('admin');
 	}
     public function authAction()
     {
+        $this->view->disable();
+        $result['status']='NOT';
+        $result['msg']='';
         if ($this->request->isPost()) {
 
             $email = $this->request->getPost('email');
@@ -33,30 +38,34 @@ class UserAdmController extends Controller
                 "(email = :email: OR username = :email:) AND password = :password: AND active = 1 ",
                 'bind' => array('email' => $email, 'password' => sha1($password))
             ));
+            $result['msg'] = 'Tên đăng nhập hoặc mật khẩu không đúng !';
             if ($user != false) {
                 $this->_registerSession($user);
-                $this->flash->success('Welcome ' . $user->name);
+                $result['status'] ='OK';
+                $result['msg'] = 'Đăng nhập thành công !';
+                /*$this->flash->success('Welcome ' . $user->username);
+                
                 return $this->dispatcher->forward(array(
                     "controller" => "admin",
                     "action"     => "index"
-                ));
+                ));*/
             }
 
-            $this->flash->error('Wrong email/password');
+            //$this->flash->error('Wrong email/password');
         }
 
         /*return $this->dispatcher->forward(array(                   
                     "action"     => "login"
                 ));*/
-        $this->view->disable();
-        $this->response->setJsonContent('Hello');
+        
+        $this->response->setJsonContent($result);
         return $this->response;
     }
     private function _registerSession(Users $user)
     {
         $this->session->set('auth', array(
             'id' => $user->id,
-            'name' => $user->$username
+            'name' => $user->username
         ));
     }
 }

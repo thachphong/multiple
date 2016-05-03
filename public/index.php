@@ -92,7 +92,7 @@ class Application extends BaseApplication
 			$cache = new BackFile($frontCache,   array("cacheDir" => __DIR__."/../var/data/" ));
 			return $cache;
 		});
-		$di->set('dispatcher', function (){
+		/*$di->set('dispatcher', function (){
 
         	$eventsManager = new EventsManager;
         	$eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
@@ -104,7 +104,7 @@ class Application extends BaseApplication
         	$dispatcher->setEventsManager($eventsManager);
 
         	return $dispatcher;
-        });
+        });*/
         
 		$di->set('url', function () {
 		    $url = new Url();
