@@ -35,10 +35,20 @@ $router->removeExtraSlashes(true);
 				'controller' => 'products',
 				'action' => 1,
 			));
-			$router->add("/admin/download/:action", array(
+            $router->add("/download", array(
+				'module' => 'backend',
+				'controller' => 'download',
+				'action' => 'index',
+			));
+			$router->add("/download/:action", array(
 				'module' => 'backend',
 				'controller' => 'download',
 				'action' => 1,
+			));
+            $router->add("/useradm", array(
+				'module' => 'backend',
+				'controller' => 'useradm',
+				'action' => 'index',
 			));
 			$router->add("/useradm/:action", array(
 				'module' => 'backend',

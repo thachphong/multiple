@@ -21,14 +21,11 @@
                         {{ password_field('password', 'class': "form-control") }}
                     </div>
                 </div>
-                <div class="form-group">
-                    {{ submit_button('Login', 'class': 'btn btn-primary btn-large') }}
+                <div class="form-group">                    
                     <input type="button" class="btn btn-primary btn-large" value="Login" id="action_login" />
                 </div>
             </fieldset>
-        </form>
-        <input type="button" class="btn btn-primary btn-large" value="msg" id="show_msg" />
-        <input type="button" class="btn btn-primary btn-large" value="err" id="show_err" />
+        </form>        
     </div>
 
     <div class="col-md-6">
@@ -65,50 +62,22 @@
 		}); 
         $(document).on('click','#action_login',function(){
             var arr =  {email:$('#email').val(),password:$('#password').val()};//$('#form_login').serializeArray();	
-            //var arr = $('#form_login').serializeArray();
+            var arr = $('#form_login').serializeArray();
             //var $arr = new FormData();//$('#form_login').serializeArray();
             //arr.push({name: 'email', value: $('#email').val()});     
             //arr.push({name: 'password', value: $('#password').val()});     
-            console.log(arr);
-           /* Pho_json_ajax('POST',"{{url.get('useradm/auth')}}" ,{username:'admin',password:'admin'},function(data){
-                if(data.status =='OK'){
-                    Pho_message_box('Thông báo',data.msg); 
-                }else{
-                    Pho_message_box_error('Lỗi',data.msg);
-                }
-            });*/
-            $.ajax({
-			      url: "{{url.get('useradm/auth')}}",
-			      data: {username:'admin',password:'admin'},
-			      
-			      dataType: 'jsonp',
-			      success: function(data) {
-			      	console.log(data);
-			        if(data.status =='OK'){
-                    	Pho_message_box('Thông báo',data.msg); 
-	                }else{
-	                    Pho_message_box_error('Lỗi',data.msg);
-	                }
-			      },
-			      error: function() {
-			         Pho_message_box_error('Lỗi','Lỗi');
-			      },
-			      type: 'POST'
-			   });
-            //$('#form_login').submit();
-        });
-        $('#form_login').submit(function(event) {
-            var arr = new FormData(this);
-            console.log(arr);
+            //console.log(arr);
+            //var _data = {email:'admin',password:'admin'};
             Pho_json_ajax('POST',"{{url.get('useradm/auth')}}" ,arr,function(data){
                 if(data.status =='OK'){
-                    Pho_message_box('Thông báo',data.msg); 
+                    Pho_message_box('Thông báo',data.msg, function(){
+                        window.location.href="{{url.get('admin')}}";
+                    }); 
                 }else{
                     Pho_message_box_error('Lỗi',data.msg);
                 }
             });
         });
-            
         
     });
 </script>

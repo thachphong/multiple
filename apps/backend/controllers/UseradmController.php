@@ -11,16 +11,29 @@ class UserAdmController extends Controller
 	public function indexAction()
 	{
 		//$this->view->disable();
-        return $this->dispatcher->forward(array(  
+        /*return $this->dispatcher->forward(array(  
                     "controller" => "useradm",                 
                     "action"     => "login"
-                ));
+                ));*/
+        return $this->response->redirect('useradm/login/',TRUE);
+        /*return $this->dispatcher->forward(array(
+                  //  'namespace' => ' Multiple\Backend\Controllers',
+                    //'module' => 'backend',
+				    'controller' => 'useradm',                    
+                    'action' => 'login'
+                ));*/
+        //return $this->forward('useradm/login/');
 	}
     public function loginAction()
 	{
 		//$this->view->disable();
         $this->view->setVar('pass', sha1('admin'));
         //$this->view->pass= sha1('admin');
+	}
+    public function logoutAction()
+	{
+		$this->session->set('auth', null);
+        return $this->response->redirect('useradm/login/');
 	}
     public function authAction()
     {

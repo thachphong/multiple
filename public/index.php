@@ -14,8 +14,11 @@ use Phalcon\Cache\Frontend\Output as FrontendCache;
 //use Phalcon\Cache\Backend\File as BackendCache;
 use Phalcon\Cache\Backend\File as BackFile;
 use Phalcon\Cache\Frontend\Data as FrontData;
-use Phalcon\Mvc\Dispatcher;
+//use Phalcon\Mvc\Dispatcher;
+use Phalcon\Mvc\Dispatcher as MvcDispatcher;
+use Phalcon\Events\Manager as EventsManager;
 use Phalcon\Db\Adapter\Pdo\Mysql as Database;
+use Phalcon\Session\Adapter\Files as FileSession;
 
 define('APP_PATH', realpath('..') . '/');
 define('IMG_DATA_PATH',APP_PATH. 'images/');
@@ -78,7 +81,12 @@ class Application extends BaseApplication
 
 			return $router;
 
-		});*/		
+		});*/	
+        $di->set('session', function() {
+            $session = new FileSession();
+            $session->start();
+            return $session;
+        });	
 		$di->set('viewCache', function(){
 	        //Cache data for one day by default
 	        $frontCache = new FrontendCache(["lifetime" => 86400]);
@@ -171,6 +179,25 @@ class Application extends BaseApplication
         	$compiler->addFunction('is_a', 'is_a');
 
         	return $volt;
+        }, true);*/        
+
+        /*$di->set('dispatcher', function () {
+
+            // Create an event manager
+            $eventsManager = new EventsManager();
+
+            // Attach a listener for type "dispatch"
+            $eventsManager->attach("dispatch", function ($event, $dispatcher) {
+                // ...
+            });
+
+            $dispatcher = new MvcDispatcher();
+
+            // Bind the eventsManager to the view component
+            $dispatcher->setEventsManager($eventsManager);
+
+            return $dispatcher;
+
         }, true);*/
 		
 		$this->setDI($di);

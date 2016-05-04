@@ -1,8 +1,13 @@
 <div align="center">
 	{{ content() }}
 
-	<div id="footer">
-		Powered by {{ link_to("about", "Phalcon PHP Framework") }}
-	</div>
+	
 
+</div>
+	
+<div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+    
+<div class="container">
+    <div class="navbar-text pull-left">Copy right 2016</div>
+</div>
 </div>
