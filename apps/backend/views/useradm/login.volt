@@ -70,13 +70,31 @@
             //arr.push({name: 'email', value: $('#email').val()});     
             //arr.push({name: 'password', value: $('#password').val()});     
             console.log(arr);
-            Pho_json_ajax('POST',"{{url.get('useradm/auth')}}" ,arr,function(data){
+           /* Pho_json_ajax('POST',"{{url.get('useradm/auth')}}" ,{username:'admin',password:'admin'},function(data){
                 if(data.status =='OK'){
                     Pho_message_box('Thông báo',data.msg); 
                 }else{
                     Pho_message_box_error('Lỗi',data.msg);
                 }
-            });
+            });*/
+            $.ajax({
+			      url: "{{url.get('useradm/auth')}}",
+			      data: {username:'admin',password:'admin'},
+			      
+			      dataType: 'jsonp',
+			      success: function(data) {
+			      	console.log(data);
+			        if(data.status =='OK'){
+                    	Pho_message_box('Thông báo',data.msg); 
+	                }else{
+	                    Pho_message_box_error('Lỗi',data.msg);
+	                }
+			      },
+			      error: function() {
+			         Pho_message_box_error('Lỗi','Lỗi');
+			      },
+			      type: 'POST'
+			   });
             //$('#form_login').submit();
         });
         $('#form_login').submit(function(event) {
