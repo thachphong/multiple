@@ -66,7 +66,7 @@ class Module
 		$di->set('view', function() {
             $view = new View();
 
-            $view->setViewsDir(__DIR__.'/views/tempate1');
+            $view->setViewsDir(__DIR__.'/views/template1');
             $view->setTemplateBefore('main');
 
             $view->registerEngines([
