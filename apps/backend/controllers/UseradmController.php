@@ -40,6 +40,7 @@ class UserAdmController extends Controller
         $this->view->disable();
         $result['status']='NOT';
         $result['msg']='';
+        $result['post'] = $_POST;
         if ($this->request->isPost()) {
 
             $email = $this->request->getPost('email');
@@ -51,6 +52,7 @@ class UserAdmController extends Controller
                 "(email = :email: OR username = :email:) AND password = :password: AND active = 1 ",
                 'bind' => array('email' => $email, 'password' => sha1($password))
             ));
+            $result['pass'] = sha1($password);
             $result['msg'] = 'Tên đăng nhập hoặc mật khẩu không đúng !';
             if ($user != false) {
                 $this->_registerSession($user);

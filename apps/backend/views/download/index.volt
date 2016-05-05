@@ -10,7 +10,9 @@
 	    <label for="title">Chọn danh mục</label>
 	    <select name="menu_id">
             <option></option>
-            
+            {%for item in listmenu%}
+            	<option value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
 	    </select>
 	</div>
     <div class="form-group">
