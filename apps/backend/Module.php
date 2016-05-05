@@ -20,8 +20,14 @@ class Module
 		$loader->registerNamespaces(array(
 			'Multiple\Backend\Controllers' => '../apps/backend/controllers/',
 			'Multiple\Models'      => '../apps/models/',
+            'Multiple\Library'      => '../apps/library/',
 			'Multiple\Backend\Plugins'     => '../apps/backend/plugins/',
 		));
+        /*$loader->registerDirs(
+			array(
+				'../apps/library/',				
+			)
+		)->register();*/
 
 		$loader->register();
 	}

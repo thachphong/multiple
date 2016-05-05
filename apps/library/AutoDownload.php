@@ -1,7 +1,8 @@
 <?php
-
-class AutoDownload_lib 
-{
+namespace Multiple\Library;
+include __DIR__.'/../library/simple_html_dom.php';
+class AutoDownload
+{     
 	private $xpath ;
     private $sdom ;
     function __construct($url='')

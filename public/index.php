@@ -148,7 +148,10 @@ class Application extends BaseApplication
 				"host" => "localhost",
 				"username" => "root",
 				"password" => "",
-				"dbname" => "multiple"
+				"dbname" => "multiple",
+                "options" => array( // this is your important part
+                    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                )
 			));
 		});
 		/*$di->set('view', function () use ($config) {
