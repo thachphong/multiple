@@ -1,7 +1,7 @@
 	<header id="header" class="container">
 		<div id="mast-head">
 			<div id="logo">
-			<a href="index.html" title="Magazine" rel="home"><img src="public/template1/images/logo.png" alt="Magazine" /></a>
+			<a href="index.html" title="Magazine" rel="home"><img src="{{url.get('public/template1/images/logo.png')}}" alt="Magazine" /></a>
 			</div>
 		</div>
 
@@ -36,7 +36,7 @@
 				</span>
 				</li>
 								
-				<li><a href="index.html"><img src="public/template1/images/home.png" alt="Magazine"></a></li>
+				<li><a href="index.html"><img src="{{url.get()}}public/template1/images/home.png" alt="Magazine"></a></li>
 				{{ elements.getMenu() }}
 			</ul>
             </div><!--/.nav-collapse -->

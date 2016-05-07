@@ -21,7 +21,7 @@ use Phalcon\Db\Adapter\Pdo\Mysql as Database;
 use Phalcon\Session\Adapter\Files as FileSession;
 
 define('APP_PATH', realpath('..') . '/');
-define('IMG_DATA_PATH',APP_PATH. 'images/');
+define('IMG_DATA_PATH',APP_PATH. 'public/images/');
 define('BASE_URL_NAME', '/multiple/');
 
 class Application extends BaseApplication

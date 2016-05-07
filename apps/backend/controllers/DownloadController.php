@@ -45,12 +45,16 @@ class DownloadController extends Controller
                     $title = $dl->GetTitle($row->xpath);
                 }else if($row->key =='image'){                
                     $file_name = $dl->get_img($row->xpath);
+                }else if($row->key=='del'){
+                    $dl->remove_element($row->xpath,$row->element_remove); 
+                }else if($row->key=='replace'){    
+                    $dl->replaceString($row->xpath,$row->from_string,$row->to_string);
                 }else if($row->key=='content'){
-                    foreach($result as $item){
+                    /*foreach($data_st as $item){
                         if($item->key=='del'){
                             $dl->remove_element($item->xpath,$item->element_remove);
                         }
-                    }
+                    }*/
                     $content = $dl->get_content($row->xpath);
                 }
             }

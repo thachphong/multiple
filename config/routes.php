@@ -14,10 +14,11 @@ $router->removeExtraSlashes(true);
 				'controller' => 1,
 				'action' => 2,
 			));
-			$router->add("/products/:action", array(
+			$router->add("/news/:params", array(
 				'module' => 'frontend',
-				'controller' => 'products',
-				'action' => 1,
+				'controller' => 'news',
+				'action' => 'index',
+                'params' => 1
 			));
 			$router->add("/login", array(
 				'module' => 'backend',

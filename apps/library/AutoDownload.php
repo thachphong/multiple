@@ -1,6 +1,7 @@
 <?php
 namespace Multiple\Library;
 include __DIR__.'/../library/simple_html_dom.php';
+use Phalcon\Logger\Adapter\File as FileAdapter;
 class AutoDownload
 {     
 	private $xpath ;
@@ -14,6 +15,7 @@ class AutoDownload
         /*$doc = new DOMDocument();
         @$doc->loadHTML($result);
         $this->xpath= new DOMXpath($doc);*/
+        
     }
     public function Set_URL($url){
         $result = $this->GetData_Url($url);
@@ -76,13 +78,16 @@ class AutoDownload
 	}
     public function remove_element($remove_con,$count=NULL){
         //$remove_con= "div#mobile_byline;div#alh-postdate;div#alh-byline;div#bb";
+        //$logger = new FileAdapter("app/logs/test.log");        
         $arr_con = explode(';',$remove_con);  
+        //$this->logger->info($arr_con[0]);
         if($count=='1'){
             //$count = 0; // remove first item
             foreach($arr_con as $item_rem){
                 $item =$this->sdom ->find($item_rem,0) ;
                 //$parent = $item->parentnode;
                 //$parent->removeChild($item);
+               // $this->logger->info('outer: '.$item->outertext);
                 $item->outertext = '';
             }
         }else{
@@ -90,7 +95,7 @@ class AutoDownload
                 foreach($this->sdom ->find($item_rem) as $item) {
                     //$parent = $item->parentnode;
                     //$parent->removeChild($item);
-                    //$item->outertext = '';
+                    $item->outertext = '';
                 }
             }
         }
@@ -203,6 +208,15 @@ class AutoDownload
         }
         return $html;
     }
+    public function replaceString($lememt , $from_string,$to_string){
+        foreach($this->sdom ->find($lememt) as $item) {                    
+            if(strpos($item->href, $from_string)!== FALSE)
+            {
+                $item->href = str_replace($from_string,$to_string,$item->href);
+            }
+        }
+        $this->sdom->save();
+    }
     public function replace_img_src($html){
         $year = date('Y');
         $month = date('m');
@@ -218,7 +232,7 @@ class AutoDownload
             //$file_name = $path_dl.'/'. $img_name;         
             $src_new = IMG_DATA_PATH.'/'.$img_name;   
             $this->file_save($data,$src_new);
-            $img->src = '../../images/'.$img_name;
+            $img->src = '../images/'.$img_name;
         }
         return $htmldom->save();
     }
