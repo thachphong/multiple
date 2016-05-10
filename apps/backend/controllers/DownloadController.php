@@ -7,6 +7,8 @@ use Multiple\Models\DownloadStructure;
 use Multiple\Library\AutoDownload;
 use Multiple\Models\Menu;
 use Multiple\Models\Posts;
+use Multiple\Models\Tags;
+use Multiple\Models\TagsPosts;
 //require __DIR__.'/../../library/AutoDownload.php';
 
 class DownloadController extends Controller
@@ -49,6 +51,8 @@ class DownloadController extends Controller
                     $dl->remove_element($row->xpath,$row->element_remove); 
                 }else if($row->key=='replace'){    
                     $dl->replaceString($row->xpath,$row->from_string,$row->to_string);
+                }else if($row->key=='tag'){    
+                	$tags = $dl->get_tag($row->xpath,$row->from_string,'');
                 }else if($row->key=='content'){
                     /*foreach($data_st as $item){
                         if($item->key=='del'){
@@ -81,6 +85,24 @@ class DownloadController extends Controller
             $post->menu_id = $menu_id;
     	    $post->save(); 
     	    
+    	    $tags_model = new Tags();
+    	    if(count($tags) >0){
+				foreach($tags as $tag){
+					$tags_model = new Tags();
+					$tag_data = Tags::findFirst(array("tag_no = :tag_no: ",'bind' => array('tag_no' => $tag['tag_no']) ));
+					if($tag_data == FALSE)
+					{
+						$tag_data = new Tags();
+						$tag_data->tag_no = $tag['tag_no'];
+						$tag_data->tag_name = $tag['tag_name'];
+						$tag_data->save();
+					}
+					$tagpost = new TagsPosts();
+					$tagpost->tag_id = $tag_data->tag_id;
+					$tagpost->post_id = $post->id ;
+					$tagpost->save();
+				}
+			}
             $result['status']='OK';
             $result['msg']='Download thành công !';
         }

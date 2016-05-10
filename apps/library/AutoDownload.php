@@ -217,6 +217,21 @@ class AutoDownload
         }
         $this->sdom->save();
     }
+    public function get_tag($lememt , $from_string,$to_string =''){
+    	$tags = array();
+    	$index =0;
+        foreach($this->sdom ->find($lememt) as $item) {                    
+            if(strpos($item->href, $from_string)!== FALSE)
+            {
+                $tag_no = str_replace($from_string,$to_string,$item->href);
+                $tag_no = str_replace('/','',$tag_no);
+                $tags[$index]['tag_no'] = $tag_no;
+                $tags[$index]['tag_name'] = $item->plaintext;
+                $index++;
+            }
+        }
+        return $tags;
+    }
     public function replace_img_src($html){
         $year = date('Y');
         $month = date('m');
