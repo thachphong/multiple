@@ -35,21 +35,42 @@ class Posts extends Model
         $usr_data = Menu::find(array('status'=>1));
         return $usr_data;
     }
-    /*public function validation()
-    {
-        $this->validate(new EmailValidator(array(
-            'field' => 'email'
-        )));
-        $this->validate(new UniquenessValidator(array(
-            'field' => 'email',
-            'message' => 'Sorry, The email was registered by another user'
-        )));
-        $this->validate(new UniquenessValidator(array(
-            'field' => 'username',
-            'message' => 'Sorry, That username is already taken'
-        )));
-        if ($this->validationHasFailed() == true) {
-            return false;
-        }
-    }*/
+    public function get_new($limit = 6){
+        $data = Posts::find(array(//'ref_link'=>$reflink,
+        						  "order" => "id desc",
+        						  "limit" => $limit
+        						  ));
+        /*$data = DownloadStructure::query()
+                ->where("ref_link = :ref_link:")  
+                ->bind(array("ref_link" => $reflink))
+                ->order("sort")
+                ->execute();*/
+        return $data;
+    }
+    public function get_realtion_old($id,$type,$menu_id){
+        /*$data = Posts::find(array('type'=>$type,
+        						  ''
+        						  "order" => "id desc",
+        						  "limit" => $limit
+        						  ));*/
+        $data = Posts::query()
+                ->where("menu_id = $menu_id ")
+                ->addwhere("type = :type:")    
+                ->addwhere("id < $id")  
+                ->bind(array("type" => $type))
+                ->order("id desc")
+                ->limit(5)
+                ->execute();
+        return $data;
+    }
+    public function get_realtion_new($menu_id,$id){        
+        $data = Posts::query()
+                ->where("menu_id = $menu_id ")               
+                ->addwhere("id <> $id") 
+                ->order("id desc")
+                ->limit(9)
+                ->execute();
+        return $data;
+    }
+    
 }

@@ -268,6 +268,46 @@ class Elements extends Component
     /**
      * Returns menu tabs
      */
+    public function getNewPost()
+    {
+    	/*$db = new Posts();
+    	$data = $db->get_new(6);*/
+    	$cacheKey = 'newpost.cache';
+		$html  = $this->dataCache->get($cacheKey);
+		if ($html === null) {
+	    	$data = $this->db->fetchAll("SELECT t.* from posts t where status=1 order by id desc limit 6 ", Phalcon\Db::FETCH_ASSOC);
+	    	$html = '';
+	    	foreach($data as $key=>$post){
+				$html .= '<li>';
+			    $html .= '<span class="number">'.($key+1).'</span>';                	
+			    $html .= '<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
+			    $html .= '</li>';
+			}
+			// Store it in the cache
+		    $this->dataCache->save($cacheKey, $html);
+		}
+		echo $html;
+    }
+    public function getTopPost()
+    {
+    	/*$db = new Posts();
+    	$data = $db->get_new(6);*/
+    	$cacheKey = 'toppost.cache';
+		$html  = $this->dataCache->get($cacheKey);
+		if ($html === null) {
+	    	$data = $this->db->fetchAll("SELECT t.* from posts t where status=1 order by total_view desc limit 6 ", Phalcon\Db::FETCH_ASSOC);
+	    	$html = '';
+	    	foreach($data as $key=>$post){
+				$html .= '<li>';
+			    $html .= '<span class="number">'.($key+1).'</span>';                	
+			    $html .= '<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
+			    $html .= '</li>';
+			}
+			// Store it in the cache
+		    $this->dataCache->save($cacheKey, $html);
+		}
+		echo $html;
+    }
     public function getTabs()
     {
         $controllerName = $this->view->getControllerName();

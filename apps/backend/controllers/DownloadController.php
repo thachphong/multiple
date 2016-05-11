@@ -51,6 +51,8 @@ class DownloadController extends Controller
                     $dl->remove_element($row->xpath,$row->element_remove); 
                 }else if($row->key=='replace'){    
                     $dl->replaceString($row->xpath,$row->from_string,$row->to_string);
+                }else if($row->key=='des'){    
+                	$des = $dl->get_text($row->xpath);
                 }else if($row->key=='tag'){    
                 	$tags = $dl->get_tag($row->xpath,$row->from_string,'');
                 }else if($row->key=='content'){
@@ -81,6 +83,7 @@ class DownloadController extends Controller
     	    $post->type = 'blog';
     	    $post->resource = $resource;
     	    $post->adduser= 1;
+    	    $post->des = $des ;
     	    $post->content = $content;
             $post->menu_id = $menu_id;
     	    $post->save(); 

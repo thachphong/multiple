@@ -94,9 +94,9 @@ class Application extends BaseApplication
 	        $cache = new BackFile($frontCache, ["cacheDir" => __DIR__."/../var/cache/",]);
 
 	        return $cache;
-    	});
+    	});// thoi gian tinh ban giay
     	$di->set('dataCache', function(){
-			$frontCache = new FrontData(array("lifetime" => 172800  ));		
+			$frontCache = new FrontData(array("lifetime" => 1800  ));		
 			$cache = new BackFile($frontCache,   array("cacheDir" => __DIR__."/../var/data/" ));
 			return $cache;
 		});
