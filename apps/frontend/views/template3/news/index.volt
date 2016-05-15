@@ -113,45 +113,9 @@ Mời bạn đọc cùng đóng góp, viết tin bài, chia sẻ mẹo vặt, nh
                                                 <div class="row">
                                                 {% for relnew in relation_new %}																								<div class="col-lg-4 col-sm-4 col-xs-4">
                                                 		<a class="bold" href="{{url.get('news/'~relnew.id)}}" title="{{relnew.caption}}">
-                                                		<img width="170" height="122" src="{{url.get('images/'~relnew.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{relnew.caption}}"/>{{relnew.caption}}                                      									</a>
+                                                		<img style=" width:170px; height:122px" src="{{url.get('images/'~relnew.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{relnew.caption}}"/>{{relnew.caption}}                                      									</a>
                                                 	</div>												
-												{% endfor %}
-                                                    <!--<div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/tho-sau-cho-than-tam-an-lac/" title="Thở sâu cho thân tâm an lạc">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/05/tho-sau-cho-than-tam-an-lac-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="tho-sau-cho-than-tam-an-lac"/>                                                            Thở sâu cho thân tâm an lạc                                                                                                                    </a>
-                                                    </div>
-                                                	<div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/cach-pha-nuoc-chanh-sa-khien-nguoi-nhe-hon-sau-1-tuan/" title="Cách pha nước chanh sả khiến người nhẹ hơn sau 1 tuần">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/05/nuoc-chanh-sa-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="nuoc chanh sa"/>                                                            Cách pha nước chanh sả khiến người nhẹ hơn sau 1 tuần                                                                                                                    </a>
-                                                    </div>
-                                                    <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/nho-dang-tri-ma-biet-them-1-cach-nau-sua-dau-nanh-bao-ngon/" title="Nhờ đãng trí tôi biết thêm cách nấu sữa đậu nành bao ngon">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/05/cach-lam-sua-dau-nanh-1-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="cach-lam-sua-dau-nanh-1"/>                                                            Nhờ đãng trí tôi biết thêm cách nấu sữa đậu nành bao ngon                                                                                                                    </a>
-                                                    </div>
-                                                    <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/luon-buon-ngu-canh-bao-benh-gi/" title="Luôn buồn ngủ cảnh báo bệnh gì?">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/05/buon-ngu-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="buon ngu"/>                                                            Luôn buồn ngủ cảnh báo bệnh gì?                                                                                                                    </a>
-                                                    </div>
-                                                    <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/nghi-le-dai-ngay-can-phai-nho-dieu-nay/" title="Nghĩ lễ dài ngày cần phải nhớ điều này!">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/ngay-le-dai-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="ngay le dai"/>                                                            Nghĩ lễ dài ngày cần phải nhớ điều này!                                                                                                                    </a>
-                                                    </div>
-                                                    <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/quan-niem-sai-lam-ve-cach-danh-rang/" title="Quan niệm sai lầm về cách đánh răng">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/danh-rang-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="danh rang"/>                                                            Quan niệm sai lầm về cách đánh răng                                                                                                                    </a>
-                                                    </div>
-                                                    <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/dung-voi-bo-nhung-loi-giay-ve-sinh-nhung-dieu-sau-day-se-khien-ban-bat-ngo/" title="Đừng vội bỏ những lõi giấy vệ sinh, những điều sau đây sẽ khiến bạn bất ngờ">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/lam-chim-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="lam chim"/>                                                            Đừng vội bỏ những lõi giấy vệ sinh, những điều sau đây sẽ khiến bạn bất ngờ                                                                                                                    </a>
-                                                    </div>
-                                                    <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/xem-cach-lam-xoai-lac-ngon-hap-dan/" title="Xem cách làm xoài lắc ngon hấp dẫn">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/9-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="9"/>                                                            Xem cách làm xoài lắc ngon hấp dẫn                                                                                                                    </a>
-                                                    </div>
-                                                    <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                        <a class="bold" href="http://bloglamme.com/mach-me-chon-cac-thuc-pham-chong-soi-cho-be/" title="Mách mẹ chọn các thực phẩm chống sởi cho bé">
-                                                            <img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/phong-soi-cho-be-bang-thuc-pham-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="phong-soi-cho-be-bang-thuc-pham"/>                                                            Mách mẹ chọn các thực phẩm chống sởi cho bé                                                                                                                    </a>
-                                                    </div>-->
+												{% endfor %}                                                    
                                                 </div>
                                             </div>
                                         </div>

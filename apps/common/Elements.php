@@ -149,7 +149,7 @@ class Elements extends Component
 	            }else{
 	                if($list_menu[$key]['chk']=='0'){
                         if( $row['title']=='Home'){
-                            $menu_data .= '<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-7">'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']).'</li>';
+                            $menu_data .= '<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-7">'.$this->tag->linkTo( '', $row['title']).'</li>';
 	                        $list_menu[$key]['chk']='1';
                         }else{
                             $menu_data .= '<li class="menu-item menu-item-type-taxonomy menu-item-object-category">'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']).'</li>';
@@ -302,6 +302,71 @@ class Elements extends Component
 			    $html .= '<span class="number">'.($key+1).'</span>';                	
 			    $html .= '<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
 			    $html .= '</li>';
+			}
+			// Store it in the cache
+		    $this->dataCache->save($cacheKey, $html);
+		}
+		echo $html;
+    }
+    public function getMidlePost()
+    {
+    	/*$db = new Posts();
+    	$data = $db->get_new(6);*/
+    	$cacheKey = 'midlepost.cache';
+		$html  = $this->dataCache->get($cacheKey);
+		if ($html === null) {
+	    	$data = $this->db->fetchAll("SELECT t.* from posts t where status=1 and menu_id=3 order by id desc limit 6 ", Phalcon\Db::FETCH_ASSOC);
+	    	$html = '';
+	    	foreach($data as $key=>$post){
+				$html .= '<li>';
+				$html .='<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">';
+                $html .='<img width="247" height="158" src="'.$this->url->get('images/'.$post['filename']).'" class="attachment-thumb_247x158 wp-post-image" alt="'.$post['caption'].'"/>'.$post['caption'].'</a>';
+			    $html .= '</li>';
+			}
+			// Store it in the cache
+		    $this->dataCache->save($cacheKey, $html);
+		}
+		echo $html;
+    }
+    public function getRightPost()
+    {
+    	/*$db = new Posts();
+    	$data = $db->get_new(6);*/
+    	$cacheKey = 'rightepost.cache';
+		$html  = $this->dataCache->get($cacheKey);
+		if ($html === null) {
+	    	$data = $this->db->fetchAll("SELECT t.* from posts t where status=1 and menu_id=4 order by id desc limit 6 ", Phalcon\Db::FETCH_ASSOC);
+	    	$html = '';
+	    	foreach($data as $key=>$post){
+	    		$html .= '<li>';
+	    		if($key==0){
+					$html .='<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'];                                                    
+                    $html .='<img width="650" height="480" src="'.$this->url->get('images/'.$post['filename']).'" class="attachment-thumb_301x216 wp-post-image" alt="'.$post['caption'].'"/></a>';
+                    $html .='<p>'.$post['des'].'</p>';
+				}else{
+					$html .='<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'"> '.$post['caption'].'</a>'; 
+				}
+				
+			}
+			// Store it in the cache
+		    $this->dataCache->save($cacheKey, $html);
+		}
+		echo $html;
+    }
+    public function getNewsfeed()
+    {
+    	/*$db = new Posts();
+    	$data = $db->get_new(6);*/
+    	$cacheKey = 'Newsfeed.cache';
+		$html  = $this->dataCache->get($cacheKey);
+		if ($html === null) {
+	    	$data = $this->db->fetchAll("SELECT t.* from posts t where status=1 order by id desc limit 10 ", Phalcon\Db::FETCH_ASSOC);
+	    	$html = '';
+	    	foreach($data as $key=>$post){
+				$html .= '<div class="item">';
+				$html .='<a href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
+               
+			    $html .= '</div>';
 			}
 			// Store it in the cache
 		    $this->dataCache->save($cacheKey, $html);

@@ -42,26 +42,35 @@ class DownloadController extends Controller
             $title ='';
             $file_name ='';
             $content ='';
+            $tags = array();
             foreach($data_st as $row){
                 if($row->key=='title'){
+                	//$this->logger->info('title');
                     $title = $dl->GetTitle($row->xpath);
-                }else if($row->key =='image'){                
-                    $file_name = $dl->get_img($row->xpath);
+                }else if($row->key =='image'){   
+                	//$this->logger->info('image');             
+                    $file_name = $dl->get_img($row->xpath,$match[0]);
                 }else if($row->key=='del'){
+                	//$this->logger->info('del'); 
                     $dl->remove_element($row->xpath,$row->element_remove); 
-                }else if($row->key=='replace'){    
+                }else if($row->key=='replace'){ 
+                	//$this->logger->info('replace');    
                     $dl->replaceString($row->xpath,$row->from_string,$row->to_string);
-                }else if($row->key=='des'){    
+                }else if($row->key=='des'){ 
+                	//$this->logger->info('des');    
                 	$des = $dl->get_text($row->xpath);
-                }else if($row->key=='tag'){    
+                }else if($row->key=='tag'){
+                	//$this->logger->info('tag');     
                 	$tags = $dl->get_tag($row->xpath,$row->from_string,'');
                 }else if($row->key=='content'){
+                	//$this->logger->info('content'); 
                     /*foreach($data_st as $item){
                         if($item->key=='del'){
                             $dl->remove_element($item->xpath,$item->element_remove);
                         }
                     }*/
-                    $content = $dl->get_content($row->xpath);
+                    $content = $dl->get_content($row->xpath,$match[0]);
+                    //$this->logger->info('content2'); 
                 }
             }
 
@@ -86,6 +95,8 @@ class DownloadController extends Controller
     	    $post->des = $des ;
     	    $post->content = $content;
             $post->menu_id = $menu_id;
+            $post->add_date = date();
+            $post->add_time = time();
     	    $post->save(); 
     	    
     	    $tags_model = new Tags();

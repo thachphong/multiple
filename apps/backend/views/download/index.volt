@@ -39,7 +39,8 @@
             Pho_json_ajax('POST',"{{url.get('download/exe')}}" ,arr,function(data){
                 if(data.status =='OK'){
                     Pho_message_box('Thông báo',data.msg, function(){
-                        window.location.href="{{url.get('download')}}";
+                        //window.location.href="{{url.get('download')}}";
+                        $('input[name="link_dl"]').val('');
                     }); 
                 }else{
                     Pho_message_box_error('Lỗi',data.msg);

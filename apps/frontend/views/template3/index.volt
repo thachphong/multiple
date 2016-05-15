@@ -15,7 +15,7 @@
 <meta name="description" content="Mẹo vặt cho mẹ, bí quyết nuôi con, sức khỏe của bé, cách nấu món ngon, sức khỏe gia đình"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="http://bloglamme.com"/>
-<link rel="next" href="http://bloglamme.com/page/2/"/>
+<link rel="next" href="http://bloglamme.com/page/2/"/> 
 <meta property="og:locale" content="en_US"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Blog Làm Mẹ - Theo bước con lớn khôn"/>

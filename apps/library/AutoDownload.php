@@ -1,11 +1,14 @@
 <?php
 namespace Multiple\Library;
 include __DIR__.'/../library/simple_html_dom.php';
-use Phalcon\Logger\Adapter\File as FileAdapter;
+//use Phalcon\Logger\Adapter\File as FileAdapter;
+use Phalcon\Logger\Adapter\File as FileLogger;
+
 class AutoDownload
 {     
 	private $xpath ;
     private $sdom ;
+    private $log;
     function __construct($url='')
     {
         if(strlen($url) > 0){
@@ -15,6 +18,8 @@ class AutoDownload
         /*$doc = new DOMDocument();
         @$doc->loadHTML($result);
         $this->xpath= new DOMXpath($doc);*/
+        $path = APP_PATH.'var/logs/auto_dl_'.date('Y-m-d').'.log';
+        $this->log = new FileLogger($path);
         
     }
     public function Set_URL($url){
@@ -124,7 +129,7 @@ class AutoDownload
 		}*/
         return  $this->sdom->find($condition,0)->src;
     }
-    public function get_img($condition){
+    public function get_img($condition,$url=''){
         $year = date('Y');
         $month = date('m');
         $y_path = IMG_DATA_PATH.'/'. $year;
@@ -136,17 +141,21 @@ class AutoDownload
             mkdir($m_path);
         }
         $src =$this->get_attributes($condition);
-        if(strpos($src,'http')===false){
+        /*if(strpos($src,'http')===false){
 			$src="http:".$src;
-		}
+		}*/
         $extension = pathinfo($src, PATHINFO_EXTENSION);
         $file_name = $year.'/'.$month.'/'. uniqid(TRUE).'.'.$extension;
         $file_full = IMG_DATA_PATH.'/'.$file_name;
         //$attr = $this->get_attributes($condition);
         //echo $src;
         //echo $file_full;die;
+        if( strpos($src, 'http')===FALSE){
+			$src = $url.$src ;
+		}
+		$this->log->info('src: '.$src);
         $data = $this->GetData_Url($src);
-        
+        var_dump($data); 
         $this->file_save($data,$file_full);
         return $file_name;
     }
@@ -200,9 +209,9 @@ class AutoDownload
         }
         return $res;
     }
-    public function  get_content($condition){
+    public function  get_content($condition,$url=''){
         $html = $this->get_innerHTML($condition);
-        $html = trim($this->replace_img_src($html));
+        $html = trim($this->replace_img_src($html,$url));
         if(substr($html,0,5)=='<br/>' ){
             $html = substr($html,5,strlen($html));
         }
@@ -232,7 +241,7 @@ class AutoDownload
         }
         return $tags;
     }
-    public function replace_img_src($html){
+    public function replace_img_src($html,$url=''){
         $year = date('Y');
         $month = date('m');
         $this->check_folder_download($year,$month);
@@ -241,6 +250,10 @@ class AutoDownload
         foreach($list_img as $img)
         {
             $src = $img->src;
+            if( strpos($src, 'http')===FALSE){
+				$src = $url.$src ;
+			}
+			$this->log->info('src: '.$src);
             $data = $this->GetData_Url($src);           
             $extension = pathinfo($src, PATHINFO_EXTENSION);
             $img_name =$year.'/'.$month.'/'. uniqid(TRUE).'.'.$extension;

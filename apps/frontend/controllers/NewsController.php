@@ -19,6 +19,8 @@ class NewsController extends Controller
         $db = new Posts();
        // $post_data= Posts::findFirst
         $post_data = Posts::findFirst(array("id = :id:  AND status = 1 ",'bind' => array('id' => $id) ));
+        $post_data->total_view += 1; 
+        $post_data->save();
         $tagpost = new Tags();
         $tag_data = $tagpost->get_by_post($id);
         $relation_old = $db->get_realtion_old($post_data->id,$post_data->type,$post_data->menu_id); 

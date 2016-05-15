@@ -36,15 +36,25 @@ class Posts extends Model
         return $usr_data;
     }
     public function get_new($limit = 6){
-        $data = Posts::find(array(//'ref_link'=>$reflink,
+        /*$data = Posts::find(array(//'ref_link'=>$reflink,
         						  "order" => "id desc",
         						  "limit" => $limit
-        						  ));
-        /*$data = DownloadStructure::query()
-                ->where("ref_link = :ref_link:")  
-                ->bind(array("ref_link" => $reflink))
-                ->order("sort")
-                ->execute();*/
+        						  ));*/
+        $data = Posts::query()
+                ->where("status = 1")  
+                ->order("id desc")
+                ->limit($limit)
+                ->execute();
+        return $data;
+    }
+    public function get_by_menu($menu_id,$limit = 6){        
+        $data = Posts::query()
+                ->where("status = 1")  
+                ->addwhere("menu_id = :menu_id:") 
+                ->bind(array("menu_id" => $menu_id))   
+                ->order("id desc")
+                ->limit($limit)
+                ->execute();
         return $data;
     }
     public function get_realtion_old($id,$type,$menu_id){

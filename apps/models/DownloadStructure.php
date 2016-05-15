@@ -21,12 +21,12 @@ class DownloadStructure extends Model
         $this->setSource("download_structure");
     }
     public function get_by_ref_link($reflink){
-        $data = DownloadStructure::find(array('ref_link'=>$reflink,  "order" => "sort"));
-        /*$data = DownloadStructure::query()
+        //$data = DownloadStructure::find(array('ref_link'=>$reflink,  "order" => "sort"));
+        $data = DownloadStructure::query()
                 ->where("ref_link = :ref_link:")  
                 ->bind(array("ref_link" => $reflink))
                 ->order("sort")
-                ->execute();*/
+                ->execute();
         return $data;
     }
     
