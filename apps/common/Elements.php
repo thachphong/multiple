@@ -84,7 +84,7 @@ class Elements extends Component
 		$menu_data  = $this->dataCache->get($cacheKey);
 		if ($menu_data === null) {
 			$menu_data ='';
-		    $list_menu = $this->db->fetchAll("SELECT t.*,'0' as chk ,(select count(*) from menu m where m.parent = t.id) have_child FROM menu t WHERE status = :status",            Phalcon\Db::FETCH_ASSOC,            array('status' => '1'));
+		    $list_menu = $this->db->fetchAll("SELECT t.*,'0' as chk ,(select count(*) from menu m where m.parent = t.id) have_child FROM menu t WHERE status = :status order by sort",            Phalcon\Db::FETCH_ASSOC,            array('status' => '1'));
 	        /*foreach($list_menu as $key=>$row){
 	            if($row['have_child']>0 && $list_menu[$key]['chk']=='0'){
 	                $menu_data .= '<li class="dropdown">'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']);

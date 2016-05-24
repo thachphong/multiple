@@ -57,115 +57,20 @@
                         <div class="popular-posts">
                             <div class="subcat">
                                 <div class="title_active">
-                                    <i class="fa fa-child"></i> <a href="" title="Được quan tâm nhiều">Được quan tâm nhiều</a>                                </div>
+                                    <i class="fa fa-child"></i> <a href="" title="Thế giới">Thế giới</a>                                </div>
                             </div>
                             <div id="owl-popular" class="owl-carousel">
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/mot-so-luu-y-phong-benh-mua-he-cho-tre/" title="Một số lưu ý phòng bệnh mùa hè cho trẻ">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/05/song-khoe-216x180.jpg" alt="Một số lưu ý phòng bệnh mùa hè cho trẻ" title="Một số lưu ý phòng bệnh mùa hè cho trẻ">
-                                            Một số lưu ý phòng bệnh mùa hè cho trẻ                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/nhung-tac-dung-phu-cua-dau-xanh-khi-an-can-phai-tranh/" title="Những tác dụng phụ của đậu xanh khi ăn cần phải tránh">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/05/dau-xanh-216x180.jpg" alt="Những tác dụng phụ của đậu xanh khi ăn cần phải tránh" title="Những tác dụng phụ của đậu xanh khi ăn cần phải tránh">
-                                            Những tác dụng phụ của đậu xanh khi ăn cần phải tránh                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/15-thuc-pham-tot-cho-me-bau-bi-3-thang-dau/" title="15 thực phẩm tốt cho mẹ bầu bí 3 tháng đầu">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/05/blog-lam-me-ca-216x180.jpg" alt="15 thực phẩm tốt cho mẹ bầu bí 3 tháng đầu" title="15 thực phẩm tốt cho mẹ bầu bí 3 tháng đầu">
-                                            15 thực phẩm tốt cho mẹ bầu bí 3 tháng đầu                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/tho-sau-cho-than-tam-an-lac/" title="Thở sâu cho thân tâm an lạc">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/05/tho-sau-cho-than-tam-an-lac-216x180.jpg" alt="Thở sâu cho thân tâm an lạc" title="Thở sâu cho thân tâm an lạc">
-                                            Thở sâu cho thân tâm an lạc                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/cach-pha-nuoc-chanh-sa-khien-nguoi-nhe-hon-sau-1-tuan/" title="Cách pha nước chanh sả khiến người nhẹ hơn sau 1 tuần">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/05/nuoc-chanh-sa-216x180.jpg" alt="Cách pha nước chanh sả khiến người nhẹ hơn sau 1 tuần" title="Cách pha nước chanh sả khiến người nhẹ hơn sau 1 tuần">
-                                            Cách pha nước chanh sả khiến người nhẹ hơn sau 1 tuần                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/nho-dang-tri-ma-biet-them-1-cach-nau-sua-dau-nanh-bao-ngon/" title="Nhờ đãng trí tôi biết thêm cách nấu sữa đậu nành bao ngon">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/05/cach-lam-sua-dau-nanh-1-216x180.jpg" alt="Nhờ đãng trí tôi biết thêm cách nấu sữa đậu nành bao ngon" title="Nhờ đãng trí tôi biết thêm cách nấu sữa đậu nành bao ngon">
-                                            Nhờ đãng trí tôi biết thêm cách nấu sữa đậu nành bao ngon                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/cay-thuoc-chua-benh-ve-gan-ke-ca-ung-thu-thoi-ky-cuoi/" title="Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/05/blog-lam-me-216x180.jpg" alt="Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối" title="Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối">
-                                            Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/nghi-le-dai-ngay-can-phai-nho-dieu-nay/" title="Nghĩ lễ dài ngày cần phải nhớ điều này!">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/04/ngay-le-dai-216x180.jpg" alt="Nghĩ lễ dài ngày cần phải nhớ điều này!" title="Nghĩ lễ dài ngày cần phải nhớ điều này!">
-                                            Nghĩ lễ dài ngày cần phải nhớ điều này!                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/dung-voi-bo-nhung-loi-giay-ve-sinh-nhung-dieu-sau-day-se-khien-ban-bat-ngo/" title="Đừng vội bỏ những lõi giấy vệ sinh, những điều sau đây sẽ khiến bạn bất ngờ">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/04/lam-chim-216x180.jpg" alt="Đừng vội bỏ những lõi giấy vệ sinh, những điều sau đây sẽ khiến bạn bất ngờ" title="Đừng vội bỏ những lõi giấy vệ sinh, những điều sau đây sẽ khiến bạn bất ngờ">
-                                            Đừng vội bỏ những lõi giấy vệ sinh, những điều sau đây sẽ khiến bạn bất ngờ                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/xem-cach-lam-xoai-lac-ngon-hap-dan/" title="Xem cách làm xoài lắc ngon hấp dẫn">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/04/9-216x180.jpg" alt="Xem cách làm xoài lắc ngon hấp dẫn" title="Xem cách làm xoài lắc ngon hấp dẫn">
-                                            Xem cách làm xoài lắc ngon hấp dẫn                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/viet-nam-dung-thu-4-dong-nam-a-ve-so-nguoi-chet-vi-ung-thu/" title="Việt Nam đứng thứ 4 Đông Nam Á về số người chết vì ung thư">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/04/anh1_1-216x180.jpg" alt="Việt Nam đứng thứ 4 Đông Nam Á về số người chết vì ung thư" title="Việt Nam đứng thứ 4 Đông Nam Á về số người chết vì ung thư">
-                                            Việt Nam đứng thứ 4 Đông Nam Á về số người chết vì ung thư                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/nuoc-che-phong-va-chua-benh-tim-mach/" title="Nước chè phòng và chữa bệnh tim mạch">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/04/1a1-216x180.jpg" alt="Nước chè phòng và chữa bệnh tim mạch" title="Nước chè phòng và chữa bệnh tim mạch">
-                                            Nước chè phòng và chữa bệnh tim mạch                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/su-phat-trien-va-ren-luyen-thinh-giac-cua-tre/" title="Sự phát triển và rèn luyện thính giác của trẻ">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/04/be-tap-nghe-216x180.jpg" alt="Sự phát triển và rèn luyện thính giác của trẻ" title="Sự phát triển và rèn luyện thính giác của trẻ">
-                                            Sự phát triển và rèn luyện thính giác của trẻ                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/khoai-so-nhung-loi-ich-mang-lai-ma-ban-chua-tung-biet/" title="Khoai sọ: Những lợi ích mang lại mà bạn chưa từng biết !">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/04/khoaiso-216x180.jpg" alt="Khoai sọ: Những lợi ích mang lại mà bạn chưa từng biết !" title="Khoai sọ: Những lợi ích mang lại mà bạn chưa từng biết !">
-                                            Khoai sọ: Những lợi ích mang lại mà bạn chưa từng biết !                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                                <div class="item">
-                                    <h3>
-                                        <a class="bold" href="http://bloglamme.com/8-ly-do-kho-ngo-khien-ban-khong-con-muon-lam-chuyen-ay/" title="8 lý do khó ngờ khiến bạn không còn muốn làm &#8220;chuyện ấy&#8221;">
-                                                                                        <img class="owl-lazy" data-src="http://bloglamme.com/wp-content/uploads/2016/04/ham-muon-tinh-duc-216x180.jpg" alt="8 lý do khó ngờ khiến bạn không còn muốn làm &#8220;chuyện ấy&#8221;" title="8 lý do khó ngờ khiến bạn không còn muốn làm &#8220;chuyện ấy&#8221;">
-                                            8 lý do khó ngờ khiến bạn không còn muốn làm &#8220;chuyện ấy&#8221;                                        </a>
-                                    </h3>
-                                                                    </div>
-                                                            </div>
+                            	{% for key,item in data1 %}
+	                        	<div class="item">
+	                        		<h3>
+	                        		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">
+	                                    <img class="owl-lazy" data-src="{{url.get('images/'~item.filename)}}" alt="{{item.caption}}" title="{{item.caption}}"/>{{item.caption}}</a>
+	                                
+	                                </h3>
+	                            </div>
+	                        	{% endfor %}
+                                    
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -300,31 +205,7 @@
                 		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
                         <img style="width:170px; height:122px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_259x186 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
                 	</li>
-                {% endfor%}
-                	                    <!--<li>
-                        <a class="bold" href="http://bloglamme.com/nhung-tac-dung-phu-cua-dau-xanh-khi-an-can-phai-tranh/" title="Những tác dụng phụ của đậu xanh khi ăn cần phải tránh">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/05/dau-xanh-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="dau xanh"/>                        	Những tác dụng phụ của đậu xanh khi...                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/buc-thu-me-viet-cho-con-gai-tuoi-moi-lon/" title="Bức thư mẹ viết cho con gái tuổi mới lớn">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/02/buc-thu-1-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="buc thu 1"/>                        	Bức thư mẹ viết cho con gái tuổi mới...                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/20-bai-thuoc-chua-benh-tang-huyet-ap-bang-thuoc-nam/" title="20 bài thuốc chữa bệnh tăng huyết áp bằng thuốc Nam">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/02/thuoc-nam-nu-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="thuoc nam nu"/>                        	20 bài thuốc chữa bệnh tăng huyết áp...                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/sinh-mo-nen-kieng-nhung-gi/" title="Mẹ sinh mổ nên ăn kiêng những gì ?">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/02/sinh-mo-bloglamme-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="sinh-mo-bloglamme"/>                        	Mẹ sinh mổ nên ăn kiêng những gì ?                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/nhung-bai-thuoc-tri-ho-cho-tre-em-me-nao-cung-can/" title="Những bài thuốc trị ho cho trẻ em, mẹ nào cũng cần">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/02/bai-tri-ho-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="bai tri ho"/>                        	Những bài thuốc trị ho cho trẻ em, mẹ...                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/la-vo-moi-kho-la-bo-ai-chang-lam-duoc/" title="Là vợ mới khó, là bồ ai chẳng làm được">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/02/pic_La-vo-moi-kho-la-bo-ai-chang-lam-duoc-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="pic_La-vo-moi-kho-la-bo-ai-chang-lam-duoc"/>                        	Là vợ mới khó, là bồ ai chẳng làm...                        </a>
-                    </li>-->
+                {% endfor%}         
 		    	</ul>
             </div>
         </div>                                
@@ -376,36 +257,30 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script></div>
-		</div>		<div id="eweb_post_by_cate_2-9" class="item-cate-2 item-cate">            <div class="subcat-2"><span><a href="http://bloglamme.com/mang-thai/" title=""><i class="fa fa-fa fa-graduation-cap"></i> Mẹ mang thai</a></span></div>            <div class="list-posts">
+		</div>		
+		<div id="eweb_post_by_cate_2-9" class="item-cate-2 item-cate">            
+			<div class="subcat-2">
+				<span><a href="/mang-xa-hoi/" title="Mạng xã hội"><i class="fa fa-fa fa-graduation-cap"></i>Mạng xã hội</a></span>
+			</div>            
+			<div class="list-posts">
                 <ul>
-                	                    <li>
-                        <a class="bold" href="http://bloglamme.com/15-thuc-pham-tot-cho-me-bau-bi-3-thang-dau/" title="15 thực phẩm tốt cho mẹ bầu bí 3 tháng đầu">
-                            15 thực phẩm tốt cho mẹ bầu bí 3 tháng đầu                            <img width="650" height="480" src="http://bloglamme.com/wp-content/uploads/2016/05/blog-lam-me-ca.jpg" class="attachment-thumb_301x216 wp-post-image" alt="blog lam me ca"/>                        </a>
-                        <p>Dinh dưỡng trong 3 tháng đầu mang thai là cực kỳ quan trọng, Blog làm mẹ xin giới thiệu đến các bạn nhóm thực [...]</p>
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/nhung-y-nghia-khong-ngo-ve-thu-nghiem-tien-san/" title="Những ý nghĩa không ngờ về thử nghiệm tiền sản">Những ý nghĩa không ngờ về thử nghiệm tiền sản</a>
-                        <!-- <span>(03-03)</span> -->
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/cac-trieu-chung-trong-thoi-ky-mang-thai-va-cach-tu-chua-tri/" title="Các triệu chứng trong thời kỳ mang thai và cách tự chữa trị">Các triệu chứng trong thời kỳ mang thai và cách tự chữa trị</a>
-                        <!-- <span>(02-29)</span> -->
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/nhung-dieu-can-biet-khi-me-mang-thai/" title="Những điều cần biết khi mẹ mang thai">Những điều cần biết khi mẹ mang thai</a>
-                        <!-- <span>(02-29)</span> -->
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/sinh-mo-nen-kieng-nhung-gi/" title="Mẹ sinh mổ nên ăn kiêng những gì ?">Mẹ sinh mổ nên ăn kiêng những gì ?</a>
-                        <!-- <span>(02-24)</span> -->
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/nhung-dieu-can-biet-ve-sinh-mo/" title="Những điều cần biết về sinh mổ">Những điều cần biết về sinh mổ(Đáp án)</a>
-                        <!-- <span>(02-24)</span> -->
-                    </li>
-                    		    		                </ul>
+                {% for key,item in right1 %}
+                            	<li>
+                                <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">{{item.caption}}
+                                {% if key == '0' %}
+                                	
+                                    <img width="650" height="480" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_482x340 wp-post-image" alt="{{item.caption}}"/> </a>
+                                    <p>{{item.des}}</p>
+                                {% else %}
+                                	</a>
+                                {% endif %}
+                                </li>
+                {% endfor %}        
+                </ul>
             </div>
-        </div>		<div id="eweb_post_by_cate_2-2" class="item-cate-2 item-cate">            <div class="subcat-2"><span><a href="http://bloglamme.com/me-sanh-dieu/" title=""><i class="fa fa-"></i> Mẹ sành điệu</a></span></div>            <div class="list-posts">
+        </div>		
+        <!--<div id="eweb_post_by_cate_2-2" class="item-cate-2 item-cate">            
+        	<div class="subcat-2"><span><a href="http://bloglamme.com/me-sanh-dieu/" title=""><i class="fa fa-"></i> Mẹ sành điệu</a></span></div>            <div class="list-posts">
                 <ul>
                 	                    <li>
                         <a class="bold" href="http://bloglamme.com/6-cach-de-so-huu-mot-doi-chan-quyen-ru/" title="6 cách để sở hữu một đôi chân quyến rũ">
@@ -413,28 +288,28 @@
                         <p>Đôi chân đẹp và láng mịn như nhung có phải là điều bạn mong muốn sở hữu? Mọi người chắc hẳn ai cũng th�[...]</p>
                     </li>
                     		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/mat-na-my-pham-giup-da-ban-cang-min/" title="Mặt nạ mỹ phẩm &#8211; giúp da bạn căng mịn">Mặt nạ mỹ phẩm &#8211; giúp da bạn căng mịn</a>
-                        <!-- <span>(03-22)</span> -->
+                        <a class="bold" href="http://bloglamme.com/mat-na-my-pham-giup-da-ban-cang-min/" title="Mặt nạ mỹ phẩm &#8211; giúp da bạn căng mịn">Mặt nạ mỹ phẩm &#8211; giúp da bạn căng mịn</a>                       
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/tri-mun-dau-den-voi-cac-loai-hoa-qua/" title="Trị mụn đầu đen với các loại hoa quả">Trị mụn đầu đen với các loại hoa quả</a>
-                        <!-- <span>(02-24)</span> -->
+                        
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/tac-dung-cua-dau-dua-cho-ba-bau/" title="Tác dụng của dầu dừa cho bà bầu ?">Tác dụng của dầu dừa cho bà bầu ?</a>
-                        <!-- <span>(02-24)</span> -->
+                        
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/meo-hay-khong-chi-danh-cho-phai-dep/" title="12 Mẹo làm đẹp hay không chỉ dành cho các nàng">12 Mẹo làm đẹp hay không chỉ dành cho các nàng</a>
-                        <!-- <span>(02-23)</span> -->
+                        
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/meo-duong-toc-bang-chuoi-chi-phi-thap-hieu-qua-cao/" title="Mẹo dưỡng tóc bằng chuối: chi phí thấp, hiệu quả cao">Mẹo dưỡng tóc bằng chuối: chi phí thấp, hiệu quả cao</a>
-                        <!-- <span>(02-23)</span> -->
+                        
                     </li>
                     		    		                </ul>
             </div>
-        </div>		<div id="eweb_post_by_cate_2-8" class="item-cate-2 item-cate">            <div class="subcat-2"><span><a href="http://bloglamme.com/suc-khoe-gia-dinh/" title=""><i class="fa fa-"></i> Sức khỏe gia đình</a></span></div>            <div class="list-posts">
+        </div>		
+        <div id="eweb_post_by_cate_2-8" class="item-cate-2 item-cate">            <div class="subcat-2"><span><a href="http://bloglamme.com/suc-khoe-gia-dinh/" title=""><i class="fa fa-"></i> Sức khỏe gia đình</a></span></div>            <div class="list-posts">
                 <ul>
                 	                    <li>
                         <a class="bold" href="http://bloglamme.com/cay-thuoc-chua-benh-ve-gan-ke-ca-ung-thu-thoi-ky-cuoi/" title="Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối">
@@ -443,27 +318,27 @@
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/nuoc-che-phong-va-chua-benh-tim-mach/" title="Nước chè phòng và chữa bệnh tim mạch">Nước chè phòng và chữa bệnh tim mạch</a>
-                        <!-- <span>(04-12)</span> -->
+                        
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/canh-bao-viet-nam-dung-thu-2-ve-ti-le-mac-benh-ung-thu/" title="[Cảnh báo]: Việt Nam đứng thứ 2 về tỉ lệ mắc bệnh ung thư">[Cảnh báo]: Việt Nam đứng thứ 2 về tỉ lệ mắc bệnh ung thư</a>
-                        <!-- <span>(04-02)</span> -->
+                        
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/nhung-dieu-toi-te-nhat-se-xay-ra-neu-ban-nhin-an-sang-thuong-xuyen/" title="Những điều tồi tệ nhất sẽ xảy ra nếu bạn nhịn ăn sáng thường xuyên">Những điều tồi tệ nhất sẽ xảy ra nếu bạn nhịn ăn sáng thường xuyên</a>
-                        <!-- <span>(03-30)</span> -->
+                        
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/bung-phang-li-nho-loai-nuoc-ep-nay/" title="Bụng phẳng lì nhờ loại nước ép này !">Bụng phẳng lì nhờ loại nước ép này !</a>
-                        <!-- <span>(03-26)</span> -->
+                        
                     </li>
                     		    		                    <li>
                         <a class="bold" href="http://bloglamme.com/loi-ich-cua-rau-xanh-doi-voi-suc-khoe-ma-ban-chua-he-biet/" title="Lợi ích của rau xanh đối với sức khỏe mà bạn chưa hề biết">Lợi ích của rau xanh đối với sức khỏe mà bạn chưa hề biết</a>
-                        <!-- <span>(03-20)</span> -->
+                        
                     </li>
                     		    		                </ul>
             </div>
-        </div>                        </div>
+        </div>-->                        </div>
                                             </div>
                 </div>
     </div>

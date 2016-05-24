@@ -19,6 +19,8 @@ class IndexController extends Controller
 		$data3 = $db->get_by_menu(5,3);// suc khoe
 		$data4 = $db->get_by_menu(4,6);// an ninh - hinh su
 		$data5 = $db->get_by_menu(8,6);// Khoa học công nghệ
+		$data1 = $db->get_by_menu(9,10);// the gioi
+		$right1 = $db->get_by_menu(10,6);// mang xa hoi
 		/*$newtab_left =array();
 		$newtab_right =array();
 		foreach($newpost as $key ->$item){
@@ -31,12 +33,14 @@ class IndexController extends Controller
         /*$this->view->newtab_left  = $newtab_left;
         $this->view->newtab_right = $newtab_right;*/
         $this->view->newtab  = $newpost;
+        $this->view->data1  = $data1;
         $this->view->data2  = $data2;
         $this->view->data3  = $data3;
         $this->view->data4  = $data4;
         $this->view->data5  = $data5;
         $this->view->data6  = $data6;
         $this->view->data7  = $data7;
+        $this->view->right1  = $right1;
        // echo 'xxx';
 	}
 }
