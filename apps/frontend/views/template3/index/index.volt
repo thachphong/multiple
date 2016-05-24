@@ -13,7 +13,7 @@
                                     <img style ="width:482px; height:305px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_482x340 wp-post-image" alt="{{item.caption}}"/> {{item.caption}}</a>
                                     <p>{{item.des}}</p>
                                 {% else %}
-                                	<img width="170" height="122" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}"</a> 		    
+                                	<img style="width:170px; height:122px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}"</a> 		    
                                 		
                                 {% endif %}
                                 </li>
@@ -174,155 +174,88 @@
                                                 <div class="col-lg-9 col-sm-9 main-left">
                             <div class="row">
                                 <div class="col-lg-8 col-sm-8 posts-left">
-                                    		<div id="eweb_post_by_cate_6-3" class="item-cate item-cate-4">            <div class="subcat">
+                                    <div id="eweb_post_by_cate_6-3" class="item-cate item-cate-4">            
+                                    	<div class="subcat">
+							                <div class="title_active">
+							                    <i class="fa fa-fa fa-book"></i>  
+							                    <h2><a href="/xa-hoi/" title="Xã hội">Xã hội</a></h2>                		
+							                </div>
+							            </div>
+				            <div class="list-posts list-posts-4">
+				                <ul>
+				                {% for key,item in data2 %}
+				                	<li>
+				                		<a href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                        <img style="width:75px; height:60px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_75x60 wp-post-image" alt="{{item.caption}}"/></a>
+				                        <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">{{item.caption}}</a>
+				                	</li>
+				                {% endfor%}
+						    	</ul>
+				            </div>
+        						</div>		
+        <div id="eweb_post_by_cate_7-2" class="item-cate item-cate-5">            
+        	<div class="subcat">
                 <div class="title_active">
-                    <i class="fa fa-fa fa-book"></i>  <h2><a href="http://bloglamme.com/giao-duc-tre/" title="Giáo dục trẻ">Giáo dục trẻ</a></h2>                </div>
-            </div>
-            <div class="list-posts list-posts-4">
-                <ul>
-                	                    <li>
-                        <a href="http://bloglamme.com/16-sai-lam-lam-hai-suc-khoe-ma-ban-khong-he-biet/" title="16 sai lầm làm hại sức khỏe mà bạn không hề biết">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/02/bo-an-sang-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="bo an sang"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/16-sai-lam-lam-hai-suc-khoe-ma-ban-khong-he-biet/" title="16 sai lầm làm hại sức khỏe mà bạn không hề biết">
-                        	16 sai lầm làm hại sức khỏe mà bạn không hề biết                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/day-cho-tre-cach-biet-tiet-kiem-tien-the-nao/" title="Dạy cho trẻ cách biết tiết kiệm tiền thế nào?">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/02/tiet-kiem-tien-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="tiet kiem tien"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/day-cho-tre-cach-biet-tiet-kiem-tien-the-nao/" title="Dạy cho trẻ cách biết tiết kiệm tiền thế nào?">
-                        	Dạy cho trẻ cách biết tiết kiệm tiền thế nào?                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/9-cach-ung-xu-ban-can-phai-day-con-ngay/" title="9 cách ứng xử bạn cần phải dạy con ngay">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/02/day-con-chao-hoi-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="day con chao hoi"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/9-cach-ung-xu-ban-can-phai-day-con-ngay/" title="9 cách ứng xử bạn cần phải dạy con ngay">
-                        	9 cách ứng xử bạn cần phải dạy con ngay                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/nhung-bi-quyet-day-con-cua-nguoi-nhat/" title="Những bí quyết dạy con của người Nhật">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/02/nguoi-nhat-day-con-ne-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="nguoi nhat day con ne"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/nhung-bi-quyet-day-con-cua-nguoi-nhat/" title="Những bí quyết dạy con của người Nhật">
-                        	Những bí quyết dạy con của người Nhật                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/ngo-ngang-voi-11-tinh-huong-con-hu-tai-bo-me/" title="Ngỡ ngàng với 11 tình huống ‘con hư tại bố mẹ’">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/02/day-con-7-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="day con 7"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/ngo-ngang-voi-11-tinh-huong-con-hu-tai-bo-me/" title="Ngỡ ngàng với 11 tình huống ‘con hư tại bố mẹ’">
-                        	Ngỡ ngàng với 11 tình huống ‘con hư tại bố mẹ’                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/30-cau-hoi-giup-me-biet-con-di-hoc-da-xay-ra-chuyen-gi/" title="30 câu hỏi giúp mẹ biết con đi học đã xảy ra chuyện gì">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/02/blog-lam-cha-me-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="blog lam cha me"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/30-cau-hoi-giup-me-biet-con-di-hoc-da-xay-ra-chuyen-gi/" title="30 câu hỏi giúp mẹ biết con đi học đã xảy ra chuyện gì">
-                        	30 câu hỏi giúp mẹ biết con đi học đã xảy ra chuyện gì                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/thoi-quen-khien-con-ban-kem-thong-minh/" title="Thói quen khiến con bạn kém thông minh">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/02/blog-lam-me-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="blog lam me"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/thoi-quen-khien-con-ban-kem-thong-minh/" title="Thói quen khiến con bạn kém thông minh">
-                        	Thói quen khiến con bạn kém thông minh                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/6-dieu-can-lam-de-thong-minh/" title="6 điều mẹ cần làm để bé thông minh">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/02/day-con-thong-minh-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="day con thong minh"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/6-dieu-can-lam-de-thong-minh/" title="6 điều mẹ cần làm để bé thông minh">
-                        	6 điều mẹ cần làm để bé thông minh                        </a>
-                    </li>
-		    		                </ul>
-            </div>
-        </div>		<div id="eweb_post_by_cate_7-2" class="item-cate item-cate-5">            <div class="subcat">
-                <div class="title_active">
-                    <i class="fa fa-"></i>  <h2><a href="http://bloglamme.com/suc-khoe-gia-dinh/" title="Sức khỏe gia đình">Sức khỏe gia đình</a></h2>                </div>
+                    <i class="fa fa-"></i>  <h2><a href="/suc-khoe/" title="Sức khỏe">Sức khỏe</a></h2>                
+                </div>
             </div>
             <div class="list-posts list-posts-5">
                 <ul>
-                	                    <li>
-                        <a href="http://bloglamme.com/cay-thuoc-chua-benh-ve-gan-ke-ca-ung-thu-thoi-ky-cuoi/" title="Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/05/blog-lam-me-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="blog lam me"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/cay-thuoc-chua-benh-ve-gan-ke-ca-ung-thu-thoi-ky-cuoi/" title="Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối">
-                        	Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/nuoc-che-phong-va-chua-benh-tim-mach/" title="Nước chè phòng và chữa bệnh tim mạch">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/1a1-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="1a1"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/nuoc-che-phong-va-chua-benh-tim-mach/" title="Nước chè phòng và chữa bệnh tim mạch">
-                        	Nước chè phòng và chữa bệnh tim mạch                        </a>
-                    </li>
-		    		                    <li>
-                        <a href="http://bloglamme.com/canh-bao-viet-nam-dung-thu-2-ve-ti-le-mac-benh-ung-thu/" title="[Cảnh báo]: Việt Nam đứng thứ 2 về tỉ lệ mắc bệnh ung thư">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/benh-ung-thu-04-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="benh-ung-thu-04"/>                        </a>
-                        <a class="bold" href="http://bloglamme.com/canh-bao-viet-nam-dung-thu-2-ve-ti-le-mac-benh-ung-thu/" title="[Cảnh báo]: Việt Nam đứng thứ 2 về tỉ lệ mắc bệnh ung thư">
-                        	[Cảnh báo]: Việt Nam đứng thứ 2 về tỉ lệ mắc bệnh ung thư                        </a>
-                    </li>
+                				{% for key,item in data3 %}
+				                	<li>
+				                		<a href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                        <img style="width:170px; height:122px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{item.caption}}"/></a>
+				                        <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">{{item.caption}}</a>
+				                	</li>
+				        		{% endfor%}
 		    		                </ul>
             </div>
-        </div>		<div id="eweb_post_by_cate_4-9" class="item-cate item73">            <div class="subcat">
+        </div>		<div id="eweb_post_by_cate_4-9" class="item-cate item73">            
+        				<div class="subcat">
+                			<div class="title_active">
+	                    		<i class="fa fa-fa fa-child"></i>  
+	                    		<h2><a href="http://bloglamme.com/cham-soc-be/" title="An ninh - Xã hội">An ninh - Xã hội</a></h2>
+                    		</div>
+                			<ul>
+                	        </ul>
+            			</div>
+            			<div class="list-posts list-posts-2">            			
+                			<ul>
+                			{% for key,item in data4 %}
+				                	<li>
+				                	{%if key=='0'%}
+				                		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                        <img style="width:543px; height:305px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_259x186 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
+				                        <p>{{item.des}} ...</p>
+				                    {%else%}
+				                    	<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                        <img style="width:75px; height:60px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_75x60 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
+				                    {%endif%}
+				                	</li>
+				        	{% endfor%}
+                    		</ul>
+            			</div>
+        </div>		
+        <div id="eweb_post_by_cate_5-3" class="item-cate ">
+            <div class="subcat">
                 <div class="title_active">
-                    <i class="fa fa-fa fa-child"></i>  <h2><a href="http://bloglamme.com/cham-soc-be/" title="Chăm sóc bé">Chăm sóc bé</a></h2>                </div>
-                <ul>
-                	                </ul>
-            </div>
-            <div class="list-posts list-posts-2">
-                <ul>
-                	                    <li>
-                        <a class="bold" href="http://bloglamme.com/mot-so-luu-y-phong-benh-mua-he-cho-tre/" title="Một số lưu ý phòng bệnh mùa hè cho trẻ">
-                        	<img width="543" height="305" src="http://bloglamme.com/wp-content/uploads/2016/05/song-khoe.jpg" class="attachment-thumb_259x186 wp-post-image" alt="song khoe"/>                        	Một số lưu ý phòng bệnh mùa hè cho trẻ                        </a>
-                        <p>Viêm não Nhật Bản B: Bệnh viêm não Nhật Bản có tỉ lệ tử vong khá cao hoặc để lại di chứng thần kinh nặng nề. Mộ[...]</p>
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/15-thuc-pham-tot-cho-me-bau-bi-3-thang-dau/" title="15 thực phẩm tốt cho mẹ bầu bí 3 tháng đầu">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/05/blog-lam-me-ca-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="blog lam me ca"/>                        	15 thực phẩm tốt cho mẹ bầu bí 3 tháng đầu                        </a>
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/quan-niem-sai-lam-ve-cach-danh-rang/" title="Quan niệm sai lầm về cách đánh răng">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/04/danh-rang-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="danh rang"/>                        	Quan niệm sai lầm về cách đánh răng                        </a>
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/mach-me-chon-cac-thuc-pham-chong-soi-cho-be/" title="Mách mẹ chọn các thực phẩm chống sởi cho bé">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/04/phong-soi-cho-be-bang-thuc-pham-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="phong-soi-cho-be-bang-thuc-pham"/>                        	Mách mẹ chọn các thực phẩm chống sởi cho bé                        </a>
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/su-phat-trien-va-ren-luyen-thinh-giac-cua-tre/" title="Sự phát triển và rèn luyện thính giác của trẻ">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/04/be-tap-nghe-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="be tap nghe"/>                        	Sự phát triển và rèn luyện thính giác của trẻ                        </a>
-                    </li>
-                    		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/tai-sao-be-mat-ngu/" title="Tại sao bé mất ngủ ?">
-                        	<img width="75" height="60" src="http://bloglamme.com/wp-content/uploads/2016/04/be-ma-ngu-75x60.jpg" class="attachment-thumb_75x60 wp-post-image" alt="be-ma-ngu"/>                        	Tại sao bé mất ngủ ?                        </a>
-                    </li>
-                    		    		                </ul>
-            </div>
-        </div>		<div id="eweb_post_by_cate_5-3" class="item-cate ">            <div class="subcat">
-                <div class="title_active">
-                    <i class="fa fa-fa fa-trophy"></i>  <h2><a href="http://bloglamme.com/goc-tu-van/" title="Góc tư vấn">Góc tư vấn</a></h2>                </div>
-                <ul>
-                	<li><a href="http://bloglamme.com/goc-tu-van/tu-van-cho-con/" title="Tư vấn cho con">Tư vấn cho con</a></li><li><a href="http://bloglamme.com/goc-tu-van/tu-van-cho-me/" title="Tư vấn cho mẹ">Tư vấn cho mẹ</a></li>                </ul>
+                    <i class="fa fa-fa fa-trophy"></i>  
+                    <h2><a href="khoa-hoc-cong-nghe/" title="Khoa học - công nghệ">Khoa học - công nghệ</a></h2>
+                </div>
+                <!--<ul>
+                	<li><a href="tu-van-cho-con/" title="Tư vấn cho con">Tư vấn cho con</a></li>
+                	<li><a href="tu-van-cho-me/" title="Tư vấn cho mẹ">Tư vấn cho mẹ</a></li>                
+                </ul>-->
             </div>
             <div class="list-posts list-posts-3">
                 <ul>
-                	                    <li>
-                        <a class="bold" href="http://bloglamme.com/mot-so-luu-y-phong-benh-mua-he-cho-tre/" title="Một số lưu ý phòng bệnh mùa hè cho trẻ">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/05/song-khoe-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="song khoe"/>                        	Một số lưu ý phòng bệnh mùa hè cho...                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/su-phat-trien-va-ren-luyen-thinh-giac-cua-tre/" title="Sự phát triển và rèn luyện thính giác của trẻ">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/be-tap-nghe-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="be tap nghe"/>                        	Sự phát triển và rèn luyện thính giác...                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/tai-sao-be-mat-ngu/" title="Tại sao bé mất ngủ ?">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/04/be-ma-ngu-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="be-ma-ngu"/>                        	Tại sao bé mất ngủ ?                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/su-phat-trien-tam-van-dong-cua-tre/" title="Sự phát triển tâm vận động của trẻ">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/03/su-phat-trien-cua-tre-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="Composite of baby(12 months)in  disposable nappy taking first step"/>                        	Sự phát triển tâm vận động của trẻ                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/nhung-loai-thuc-pham-tot-cho-doi-mat-cua-be/" title="Những loại thực phẩm tốt cho đôi mắt của bé">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/03/lam-sao-khi-tre-kem-hap-thu-dinh-duong-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="lam-sao-khi-tre-kem-hap-thu-dinh-duong"/>                        	Những loại thực phẩm tốt cho đôi...                        </a>
-                    </li>
-		    		                    <li>
-                        <a class="bold" href="http://bloglamme.com/nhung-y-nghia-khong-ngo-ve-thu-nghiem-tien-san/" title="Những ý nghĩa không ngờ về thử nghiệm tiền sản">
-                        	<img width="170" height="122" src="http://bloglamme.com/wp-content/uploads/2016/03/thu-nghiem-tien-san-170x122.jpg" class="attachment-thumb_170x122 wp-post-image" alt="thu nghiem tien san"/>                        	Những ý nghĩa không ngờ về thử...                        </a>
-                    </li>
+                				{% for key,item in data5 %}
+				                	<li>
+				                		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                        <img style="width:170px; height:122px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
+				                	</li>
+				        		{% endfor%}
+                	                    
 		    		                </ul>
             </div>
         </div>		
