@@ -23,6 +23,7 @@ use Phalcon\Session\Adapter\Files as FileSession;
 define('APP_PATH', realpath('..') . '/');
 define('IMG_DATA_PATH',APP_PATH. 'public/images/');
 define('BASE_URL_NAME', '/multiple/');
+date_default_timezone_set("Asia/Ho_Chi_Minh");
 
 class Application extends BaseApplication
 {
