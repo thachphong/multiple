@@ -20,6 +20,7 @@ class DownloadController extends Controller
 		$menu = new Menu();
 		$list_menu = $menu->get_All();
 		$this->view->listmenu = $list_menu;
+		$this->view->date_out =date('H:i');
 	}
     public function exeAction(){
         $this->view->disable();
@@ -98,8 +99,8 @@ class DownloadController extends Controller
     	    $post->des = $des ;
     	    $post->content = $content;
             $post->menu_id = $menu_id;
-            $post->add_date = date();
-            $post->add_time = time();
+            $post->add_date = date('Y-m-d');
+            $post->add_time = date('H:i');
     	    $post->save(); 
     	    
     	    $tags_model = new Tags();

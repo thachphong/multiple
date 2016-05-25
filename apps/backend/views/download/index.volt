@@ -17,6 +17,7 @@
         <input size="65" name="link_dl" value="" />
         <input type="button" value="Download" id="btn_download">
     </div>
+    {{date_out}}
 </form>
 
 </div>

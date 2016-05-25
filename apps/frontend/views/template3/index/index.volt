@@ -29,7 +29,7 @@
 	                                    <img style="width:75px; height:60px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_75x60 wp-post-image" alt="{{item.caption}}"/></a>
 	                                <div class="info-post">
                                         <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">{{item.caption}}</a>
-                                        <span class="date timepost" data-time="04-05-2016">1 week  trước</span>
+                                        <span class="date timepost" data-time="">{{elements.formatdate(item.add_date,item.add_time)}}</span>
                                 	</div>
 	                                
 	                            </li>
@@ -308,8 +308,8 @@
                     </li>
                     		    		                </ul>
             </div>
-        </div>		
-        <div id="eweb_post_by_cate_2-8" class="item-cate-2 item-cate">            <div class="subcat-2"><span><a href="http://bloglamme.com/suc-khoe-gia-dinh/" title=""><i class="fa fa-"></i> Sức khỏe gia đình</a></span></div>            <div class="list-posts">
+        </div>	-->	
+        <!--<div id="eweb_post_by_cate_2-8" class="item-cate-2 item-cate">            <div class="subcat-2"><span><a href="http://bloglamme.com/suc-khoe-gia-dinh/" title=""><i class="fa fa-"></i> Sức khỏe gia đình</a></span></div>            <div class="list-posts">
                 <ul>
                 	                    <li>
                         <a class="bold" href="http://bloglamme.com/cay-thuoc-chua-benh-ve-gan-ke-ca-ung-thu-thoi-ky-cuoi/" title="Cây thuốc chữa bệnh về gan, kể cả ung thư thời kỳ cuối">
@@ -338,7 +338,7 @@
                     </li>
                     		    		                </ul>
             </div>
-        </div>-->                        </div>
+        </div>-->                       </div>
                                             </div>
                 </div>
     </div>

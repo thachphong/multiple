@@ -388,4 +388,10 @@ class Elements extends Component
         }
         echo '</ul>';
     }
+    public function formatdate($date,$time=''){
+    	$source = $date.' '.$time;
+		$date = new DateTime($source);
+		echo $date->format('d/m/Y H:i'); 
+		//return date_format($date.' '.$time,'d/m/Y H:i');
+	}
 }
