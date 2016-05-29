@@ -10,8 +10,8 @@ class Menu extends Model
     public $title;
     public $status;
     public $parent;
-    public $link;
-        
+    public $no;
+    public $sort;
     public function initialize()
     {
         $this->setSource("menu");

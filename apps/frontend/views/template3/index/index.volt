@@ -8,7 +8,7 @@
                             <ul class="left">
                             {% for key,item in newtab if key <4 %}
                             	<li>
-                                <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">
+                                <a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">
                                 {% if key == '0' %}
                                     <img style ="width:482px; height:305px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_482x340 wp-post-image" alt="{{item.caption}}"/> {{item.caption}}</a>
                                     <p>{{item.des}}</p>
@@ -25,10 +25,10 @@
                             <ul class="right">
                             {% for key,item in newtab if key >=4 %}
 	                        	<li>
-	                        		<a href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">
+	                        		<a href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">
 	                                    <img style="width:75px; height:60px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_75x60 wp-post-image" alt="{{item.caption}}"/></a>
 	                                <div class="info-post">
-                                        <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">{{item.caption}}</a>
+                                        <a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">{{item.caption}}</a>
                                         <span class="date timepost" data-time="">{{elements.formatdate(item.add_date,item.add_time)}}</span>
                                 	</div>
 	                                
@@ -63,7 +63,7 @@
                             	{% for key,item in data1 %}
 	                        	<div class="item">
 	                        		<h3>
-	                        		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">
+	                        		<a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">
 	                                    <img class="owl-lazy" data-src="{{url.get('images/'~item.filename)}}" alt="{{item.caption}}" title="{{item.caption}}"/>{{item.caption}}</a>
 	                                
 	                                </h3>
@@ -90,9 +90,9 @@
 				                <ul>
 				                {% for key,item in data2 %}
 				                	<li>
-				                		<a href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                		<a href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">  
 				                        <img style="width:75px; height:60px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_75x60 wp-post-image" alt="{{item.caption}}"/></a>
-				                        <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">{{item.caption}}</a>
+				                        <a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">{{item.caption}}</a>
 				                	</li>
 				                {% endfor%}
 						    	</ul>
@@ -108,9 +108,9 @@
                 <ul>
                 				{% for key,item in data3 %}
 				                	<li>
-				                		<a href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                		<a href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">  
 				                        <img style="width:170px; height:122px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{item.caption}}"/></a>
-				                        <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">{{item.caption}}</a>
+				                        <a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">{{item.caption}}</a>
 				                	</li>
 				        		{% endfor%}
 		    		                </ul>
@@ -129,11 +129,11 @@
                 			{% for key,item in data4 %}
 				                	<li>
 				                	{%if key=='0'%}
-				                		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                		<a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">  
 				                        <img style="width:543px; height:305px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_259x186 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
 				                        <p>{{item.des}} ...</p>
 				                    {%else%}
-				                    	<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                    	<a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">  
 				                        <img style="width:75px; height:60px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_75x60 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
 				                    {%endif%}
 				                	</li>
@@ -156,7 +156,7 @@
                 <ul>
                 				{% for key,item in data5 %}
 				                	<li>
-				                		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+				                		<a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">  
 				                        <img style="width:170px; height:122px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
 				                	</li>
 				        		{% endfor%}
@@ -177,7 +177,7 @@
                 <ul>
                 {% for key,item in data6 %}
                 	<li>
-                		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">
+                		<a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">
                 		{% if key=='0' %}
                         	<img width="650" height="480" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_259x186 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
                         <p>{{item.des}}</p>
@@ -202,7 +202,7 @@
                 <ul>
                 {% for key,item in data7 %}
                 	<li>
-                		<a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">  
+                		<a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">  
                         <img style="width:170px; height:122px" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_259x186 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
                 	</li>
                 {% endfor%}         
@@ -246,17 +246,23 @@
                 	                </ul>
             </div>
 
-        </div><div id="text-15" class="widget_text item-cate">			<div class="textwidget"><script type="text/javascript" src="//admicro1.vcmedia.vn/ads_codes/ads_box_34237.ads"></script></div>
+        </div><div id="text-15" class="widget_text item-cate">			
+        <div class="textwidget">
+        <!--quang cao tai day <script type="text/javascript" src="//admicro1.vcmedia.vn/ads_codes/ads_box_34237.ads"></script>-->
+        </div>
 		</div>                                </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-3 main-right">
-                            <div id="text-19" class="widget_text item-cate">			<div class="textwidget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- thaycode -->
+                            <div id="text-19" class="widget_text item-cate">			
+                            <div class="textwidget">
+                            <!-- thaycode -->
+                            <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2923659153088133" data-ad-slot="6027411801" data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script></div>
+</script>--></div>
 		</div>		
 		<div id="eweb_post_by_cate_2-9" class="item-cate-2 item-cate">            
 			<div class="subcat-2">
@@ -266,7 +272,7 @@
                 <ul>
                 {% for key,item in right1 %}
                             	<li>
-                                <a class="bold" href="{{url.get('news/'~item.id)}}" title="{{item.caption}}">{{item.caption}}
+                                <a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">{{item.caption}}
                                 {% if key == '0' %}
                                 	
                                     <img width="650" height="480" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_482x340 wp-post-image" alt="{{item.caption}}"/> </a>

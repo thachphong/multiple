@@ -14,8 +14,9 @@
                                     <div id="date_share" class="shareheard">
                                         <div class="date">
                                             <i class="fa fa-calendar"></i>
-                                            <span>Sun, 05 / 2016</span>                                            10:19 am                                            <span class="drash_share">|</span>
-                                            <i class="fa fa-user"></i> <a class="author" href="http://bloglamme.com/author/aseanfriends/">aseanfriends</a>
+                                            <span>{{elements.formatdate(post.add_date,post.add_time)}} </span>
+                                            <!--<span class="drash_share">|</span>-->
+                                            <!--<i class="fa fa-user"></i> <a class="author" href="/author/aseanfriends/">aseanfriends</a>-->
                                         </div>
                                         <div id="block_share">
                                             <a class="btn_facebook" rel="nofollow" href="javascript:;" title="Chia sẻ bài viết lên facebook"><i class="fa fa-facebook-official"></i></a>
@@ -31,7 +32,7 @@
 
 											<ul>
 											{% for relitem in relation_old %}												
-												<li><a href="{{url.get('news/'~ relitem.id)}}" title="{{relitem.caption}}">{{relitem.caption}}</a></li>
+												<li><a href="{{url.get('n/'~ relitem.id~'/'~relitem.caption_url)}}" title="{{relitem.caption}}">{{relitem.caption}}</a></li>
 											{% endfor %}
 			
 											</ul>
@@ -43,7 +44,7 @@ var addthis_config = {"data_track_clickback":true,"ui_atversion":300,"ignore_ser
 var addthis_share = {};
 </script>
                 <!-- AddThis Settings Begin -->
-                <script data-cfasync="false" type="text/javascript">
+                <!--<script data-cfasync="false" type="text/javascript">
                     var addthis_product = "wpp-5.3.2";
                     var wp_product_version = "wpp-5.3.2";
                     var wp_blog_version = "4.3.4";
@@ -57,9 +58,9 @@ var addthis_share = {};
                     if (typeof(addthis_layers) == "undefined") {
                         var addthis_layers = {"share":{"theme":"transparent","position":"left","numPreferredServices":5,"mobile":false},"sharedock":{"counts":true,"position":"bottom","numPreferredServices":5}};
                     }
-                </script>
-                <script data-cfasync="false" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=wp-30e0e1f2f39b8a3f0dd0db3a5f806f78 " async="async">
-                </script>
+                </script>-->
+                <!--<script data-cfasync="false" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=wp-30e0e1f2f39b8a3f0dd0db3a5f806f78 " async="async">
+                </script>-->
                 <script data-cfasync="false" type="text/javascript">
                     (function() {
                         var at_interval = setInterval(function () {
@@ -78,19 +79,19 @@ var addthis_share = {};
 												{{ link_to("tag/" ~ tagItem.tag_no, tagItem.tag_name) }}
 											{% endfor %}
                                             </span>
-<center> <hr>
-<table style="background-color: #ffe4c4;width:550px;font-size:14px;line-height:20px;margin-bottom:10px;padding:5px" border="1">
+<center> <!--<hr>-->
+<!--<table style="background-color: #ffe4c4;width:550px;font-size:14px;line-height:20px;margin-bottom:10px;padding:5px" border="1">
   <tbody>
     <tr>
       <td style="padding:5px">
         <p style="text-align:justify">
           <table> <h3 style="font-size:20px;color:blue;">Gửi những chia sẻ của bạn đến với Blog Làm Mẹ ?</h3>
-Mời bạn đọc cùng đóng góp, viết tin bài, chia sẻ mẹo vặt, những món ăn ngon cùng chúng tôi.Thông điệp của bạn sẽ được chúng tôi biên tập & đăng tải trên website này! gửi về hộp thư <a href="mailto:bloglamme.com@gmail.com" style="color:#ad0303">bloglamme.com@gmail.com</a> Gửi và bạn sẽ nhận được nhật bút ! cảm ơn !</center> </table>
+Mời bạn đọc cùng đóng góp, viết tin bài, chia sẻ mẹo vặt, những món ăn ngon cùng chúng tôi.Thông điệp của bạn sẽ được chúng tôi biên tập & đăng tải trên website này! gửi về hộp thư <a href="mailto:bl.com@gmail.com" style="color:#ad0303">bloglamme.com@gmail.com</a> Gửi và bạn sẽ nhận được nhật bút ! cảm ơn !</center> </table>
         </p>
       </td>
     </tr>
   </tbody>
-</table> </center>
+</table> --></center>
                                                                                     </div>
                                         <hr>
                                         <div class="article-fb-comments">
@@ -100,10 +101,10 @@ Mời bạn đọc cùng đóng góp, viết tin bài, chia sẻ mẹo vặt, nh
                                               var js, fjs = d.getElementsByTagName(s)[0];
                                               if (d.getElementById(id)) return;
                                               js = d.createElement(s); js.id = id;
-                                              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3&appId=1498814190377627";
+                                              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3&appId=807407399380069";
                                               fjs.parentNode.insertBefore(js, fjs);
                                             }(document, 'script', 'facebook-jssdk'));</script>
-                                            <div class="fb-comments" data-href="http://bloglamme.com/cay-thuoc-chua-benh-ve-gan-ke-ca-ung-thu-thoi-ky-cuoi/" data-width="100%" data-numposts="1" data-colorscheme="light"></div>
+                                            <div class="fb-comments" data-href="{{url.get('n/'~ post.id~'/'~post.caption_url)}}" data-width="100%" data-numposts="1" data-colorscheme="light"></div>
                                                                                     </div>
                                         <div class="post-related">
                                             <div class="subcat-2">
@@ -112,7 +113,7 @@ Mời bạn đọc cùng đóng góp, viết tin bài, chia sẻ mẹo vặt, nh
                                             <div class="related-posts">
                                                 <div class="row">
                                                 {% for relnew in relation_new %}																								<div class="col-lg-4 col-sm-4 col-xs-4">
-                                                		<a class="bold" href="{{url.get('news/'~relnew.id)}}" title="{{relnew.caption}}">
+                                                		<a class="bold" href="{{url.get('n/'~relnew.id~'/'~relnew.caption_url)}}" title="{{relnew.caption}}">
                                                 		<img style=" width:170px; height:122px" src="{{url.get('images/'~relnew.filename)}}" class="attachment-thumb_170x122 wp-post-image" alt="{{relnew.caption}}"/>{{relnew.caption}}                                      									</a>
                                                 	</div>												
 												{% endfor %}                                                    
@@ -125,7 +126,9 @@ Mời bạn đọc cùng đóng góp, viết tin bài, chia sẻ mẹo vặt, nh
                           {{ partial('includes/midle') }}
                         </div>
                     </div>
+                    <div class="col-lg-3 col-sm-3 col-xs-12">
                      {{ partial('includes/right') }}
+                    </div>
                 </div>
             </div>
         </section><!-- .main -->

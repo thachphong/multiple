@@ -14,12 +14,61 @@ $router->removeExtraSlashes(true);
 				'controller' => 1,
 				'action' => 2,
 			));
-			$router->add("/news/:params", array(
+			$router->add("/c/:params", array(
+				'module' => 'frontend',
+				'controller' => 'category',
+				'action' => 'index',
+                'params' => 1,
+               // 'page' => '1'
+			));
+			$router->add("/c/:params/:page", array(
+				'module' => 'frontend',
+				'controller' => 'category',
+				'action' => 'index',
+                'params' => 1,
+                'page' => 2
+			));
+			$router->add("/tag/:params", array(
+				'module' => 'frontend',
+				'controller' => 'category',
+				'action' => 'tag',
+                'params' => 1,
+               // 'page' => '1'
+			));
+			$router->add("/tag/:params/:page", array(
+				'module' => 'frontend',
+				'controller' => 'category',
+				'action' => 'tag',
+                'params' => 1,
+                'page' => 2
+			));
+			$router->add("/search/:params", array(
+				'module' => 'frontend',
+				'controller' => 'category',
+				'action' => 'search',
+                'params' => 1,
+               // 'page' => '1'
+			));
+			$router->add("/tag/:params/:page", array(
+				'module' => 'frontend',
+				'controller' => 'category',
+				'action' => 'search',
+                'params' => 1,
+                'page' => 2
+			));
+			$router->add("/n/:params", array(
 				'module' => 'frontend',
 				'controller' => 'news',
 				'action' => 'index',
                 'params' => 1
 			));
+			$router->add("/n/:params/:caption_url", array(
+				'module' => 'frontend',
+				'controller' => 'news',
+				'action' => 'index',
+                'params' => 1
+			));
+			
 			$router->add("/login", array(
 				'module' => 'backend',
 				'controller' => 'login',

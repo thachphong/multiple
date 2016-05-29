@@ -32,6 +32,7 @@ class IndexController extends Controller
 		}*/
         /*$this->view->newtab_left  = $newtab_left;
         $this->view->newtab_right = $newtab_right;*/
+        $this->view->menu_id =1 ;
         $this->view->newtab  = $newpost;
         $this->view->data1  = $data1;
         $this->view->data2  = $data2;

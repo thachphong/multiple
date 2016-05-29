@@ -25,5 +25,8 @@ class Tags extends Model
         //$tags  = $query->execute();
 		//$tags  = $query->execute(array(        'post_id' => $post_id    ));
 		return $tags;
-    }   
+    }  
+    public function get_by_tag_no($tag_no){
+		return  Tags::findFirst(array("tag_no = :tag_no: ",'bind' => array('tag_no' => $tag_no) ));
+	} 
 }

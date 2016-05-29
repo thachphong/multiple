@@ -75,9 +75,9 @@ a.bold{  font-family: 'Roboto Condensed',sans-serif;font-weight: 700;  display: 
 .wrapper-logo-banner .col-lg-8 img{margin: 0}
 .top-menu li{float: left;}
 .top-menu li a{ float: left;font-family: 'Roboto Condensed', sans-serif;font-size: 16px; line-height: 34px;padding: 0 10px}
-#searchform{float: right;  width: 100%}
-#searchform input[type="text"]{ border-radius: 7px 0 0 7px;margin: 0px;padding: 0 10px;background: #fff;color: #a9a9a9;font-style: italic;outline: none;float: left;border: 1px solid #E0CEBD;border-right-width: 0;width: 84%}
-#searchform input[type="submit"] {height: 26px;border-radius: 0 7px 7px 0;color: #F6EDBC;padding: 0 20px;border: 1px solid #E0CEBD;border-left-width: 0;background: #1D44B8 url(images/icon-search.png) no-repeat center center; width: 15%}
+#searchform1{float: right;  width: 100%}
+#searchform1 input[type="text"]{ border-radius: 7px 0 0 7px;margin: 0px;padding: 0 10px;background: #fff;color: #a9a9a9;font-style: italic;outline: none;float: left;border: 1px solid #E0CEBD;border-right-width: 0;width: 84%}
+#searchform1 .buttom-search {height: 26px;border-radius: 0 7px 7px 0;color: #F6EDBC;padding: 0 20px;border: 1px solid #E0CEBD;border-left-width: 0;background: #1D44B8 url(images/icon-search.png) no-repeat center center; width: 15%}
 #logo h1{display: none}
 /*Main menu*/
 /*.wrapper-main-menu{background-color: #1D44B8}*/
@@ -376,7 +376,7 @@ article.comment .comment-reply-link:hover{color:#222}
 @media all and (max-width: 1024px){
 	.title-posts-news{width: 10%}
 	.append_recent{width: 88%}
-	#searchform input[type="text"]{ width: 80%}
+	#searchform1 input[type="text"]{ width: 80%}
 }
 @media screen and (max-width: 979px) {
 
@@ -409,7 +409,7 @@ article.comment .comment-reply-link:hover{color:#222}
 	.exp-related{display: block}
 }
 @media screen and (max-width: 568px) {
-	#searchform input[type="text"]{width: 210px}
+	#searchform1 input[type="text"]{width: 210px}
 	.news-posts .col-xs-6{width: 100%}
 	.news-posts .left{ margin-bottom: 10px}
 }
@@ -434,4 +434,7 @@ article.comment .comment-reply-link:hover{color:#222}
 }
 @media screen and (max-width: 320px) {
 
+}
+.archive .col-lg-9, .single .col-lg-9 {
+    border-right: 1px solid #D9D9D9;
 }

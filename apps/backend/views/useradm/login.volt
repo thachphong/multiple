@@ -28,7 +28,7 @@
         </form>        
     </div>
 
-    <div class="col-md-6">
+    <!--<div class="col-md-6">
 
         <div class="page-header">
             <h2>Tôi chưa có tài khoản ?</h2>
@@ -36,16 +36,10 @@
         {{ pass }}
         {{url.getStatic('aa')}}
         <p>Tạo mới tài khoản</p>
-        <!--<ul>
-            <li>Create, track and export your invoices online</li>
-            <li>Gain critical insights into how your business is doing</li>
-            <li>Stay informed about promotions and special packages</li>
-        </ul>-->
-
         <div class="clearfix center">
             {{ link_to('register', 'Sign Up', 'class': 'btn btn-primary btn-large btn-success') }}
         </div>
-    </div>
+    </div>-->
 
 </div>
 <script>
@@ -78,6 +72,11 @@
                 }
             });
         });
+        $("#password").keydown(function (e) {    			
+		        if (e.keyCode == 13) {
+		        	$('#action_login').click();
+		        }
+		});
         
     });
 </script>

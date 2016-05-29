@@ -29,6 +29,7 @@ class NewsController extends Controller
         $this->view->relation_old = $relation_old;
         $this->view->relation_new = $relation_new;
         $this->view->tags = $tag_data;
+        $this->view->menu_id = $post_data->menu_id;
 	}
 	public function viewAction($id)
 	{

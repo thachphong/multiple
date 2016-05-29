@@ -2,7 +2,9 @@
 
 namespace Multiple\Models;
 
+use Multiple\Models\TagsPosts;
 use Phalcon\Mvc\Model;
+//use Phalcon\Mvc\Model\Query;
 
 class Posts extends Model
 {
@@ -25,6 +27,7 @@ class Posts extends Model
     public $total_like;
     public $resource;
     public $menu_id;
+    public $caption_url;
     
         
     public function initialize()
@@ -47,13 +50,14 @@ class Posts extends Model
                 ->execute();
         return $data;
     }
-    public function get_by_menu($menu_id,$limit = 6){        
+    public function get_by_menu($menu_id,$limit = 6,$offet=0){        
         $data = Posts::query()
                 ->where("status = 1")  
                 ->addwhere("menu_id = :menu_id:") 
-                ->bind(array("menu_id" => $menu_id))   
+                ->bind(array("menu_id" => $menu_id)) 
                 ->order("id desc")
-                ->limit($limit)
+                ->limit(array($limit,$offet))
+               // ->offset(1)                 
                 ->execute();
         return $data;
     }
@@ -82,5 +86,74 @@ class Posts extends Model
                 ->execute();
         return $data;
     }
-    
+    public function get_countpost($type='',$menu_id =''){
+        $sql="select  count(*) cnt
+				from  posts 				
+				where (status <> 3)				
+				";
+        if($type != ''){
+            $sql.=" and posts.type = '".$type."'";
+        }
+        if($menu_id != ''){
+            $sql.=" and posts.menu_id = ".$menu_id;
+        }
+        $result = static::getarray_by_sql($sql);
+        if(count($result) > 0){
+            return $result[0]['cnt'];
+        }
+        return 0;
+    }
+    public function get_totalrow($menu_id){
+    	$pql = "SELECT count(*) cnt FROM Multiple\Models\Posts Posts
+    			where status = 1 and menu_id = :menu_id:";
+		$total = $this->modelsManager->executeQuery($pql,array( 'menu_id' => $menu_id));
+		//$total = $manager->executeQuery($phql);
+		/*foreach($total as $row){
+			return $row->cnt;
+		}*/
+		return $total[0]->cnt;
+	}
+    public function get_by_tag($tag_id,$limit = 6,$offet=0){    
+    	$pql = "select p.* from Multiple\Models\TagsPosts t
+				INNER JOIN Multiple\Models\Posts p
+						on t.post_id = p.id and p.status =1
+				WHERE t.tag_id= :tag_id:
+				ORDER BY p.id DESC
+				limit $limit
+				OFFSET $offet";
+		$data = $this->modelsManager->executeQuery($pql,array( 'tag_id' => $tag_id));    
+        
+        return $data;
+    }
+    public function get_totalrow_bytag($tag_id){    
+    	$pql = "select count(p.id) cnt from Multiple\Models\TagsPosts t
+				INNER JOIN Multiple\Models\Posts p
+						on t.post_id = p.id and p.status =1
+				WHERE t.tag_id= :tag_id:";
+				;
+		$data = $this->modelsManager->executeQuery($pql,array( 'tag_id' => $tag_id));    
+        
+        return $data[0]->cnt;
+    }
+    public function search($keysearch,$limit = 6,$offet=0){
+    	$pql = "select *  from Multiple\Models\Posts
+				where  (REPLACE(caption_url,'-',' ') like :keysearch:  or 
+				caption like :keysearch:)
+				and status=1
+				ORDER BY id DESC
+				limit $limit
+				OFFSET $offet";
+		$data = $this->modelsManager->executeQuery($pql,array( 'keysearch' => '%'.$keysearch.'%'));    
+        
+        return $data;
+	}
+	public function search_totalrow($keysearch){    
+    	$pql = "select count(*) cnt  from Multiple\Models\Posts
+				where  (REPLACE(caption_url,'-',' ') like :keysearch:  or 
+				caption like :keysearch:)
+				and status=1 ";
+		$data = $this->modelsManager->executeQuery($pql,array( 'keysearch' => '%'.$keysearch.'%'));    
+        
+        return $data[0]->cnt;
+    }
 }

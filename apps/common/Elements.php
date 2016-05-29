@@ -28,8 +28,8 @@ class Elements extends Component
                 'caption' => 'Contact',
                 'action' => 'index'
             ),
-             'news' => array(
-                'caption' => 'news',
+            'approval' => array(
+                'caption' => 'Duyệt bài',
                 'action' => 'index'
             ),
             'download' => array(
@@ -121,16 +121,16 @@ class Elements extends Component
 	        }*/
             foreach($list_menu as $key=>$row){
 	            if($row['have_child']>0 && $list_menu[$key]['chk']=='0'){
-	                $menu_data .= '<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children">'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']);
+	                $menu_data .= '<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children">'.$this->tag->linkTo( 'c/' . $row['no'], $row['title']);
 	                $menu_data .= '<ul class="sub-menu">';
 	                foreach($list_menu as $key1=>$sub){
 	                    if($sub['parent']==$row['id'] && $list_menu[$key1]['chk']=='0' ){
 	                        if($sub['have_child']>0){
-	                            $menu_data .= '<li class="dropdown">'.$this->tag->linkTo( 'category/view?id=' . $sub['id'], $sub['title']);
+	                            $menu_data .= '<li class="dropdown">'.$this->tag->linkTo( 'c/' . $sub['no'], $sub['title']);
 	                            $menu_data .= '<ul class="sub-menu">';
 	                            foreach($list_menu as $key2=>$sub2){
 	                                if($sub2['parent']==$sub['id'] && $list_menu[$key2]['chk']=='0' ){
-	                                    $menu_data .= '<li>'.$this->tag->linkTo( 'category/view?id=' . $sub2['id'], $sub2['title']).'</li>';
+	                                    $menu_data .= '<li>'.$this->tag->linkTo( 'c/' . $sub2['no'], $sub2['title']).'</li>';
 	                                    $list_menu[$key2]['chk']='1';
 	                                }
 	                            }
@@ -138,7 +138,7 @@ class Elements extends Component
 	                            $list_menu[$key1]['chk']='1';
 	                        }else{
 	                            if($list_menu[$key1]['chk']=='0'){
-	                                $menu_data .= '<li class="menu-item menu-item-type-taxonomy menu-item-object-category">'.$this->tag->linkTo( 'category/view?id=' . $sub['id'], $sub['title']).'</li>';
+	                                $menu_data .= '<li class="menu-item menu-item-type-taxonomy menu-item-object-category">'.$this->tag->linkTo( 'c/' . $sub['no'], $sub['title']).'</li>';
 	                                $list_menu[$key1]['chk']='1';
 	                            }
 	                        }
@@ -149,10 +149,10 @@ class Elements extends Component
 	            }else{
 	                if($list_menu[$key]['chk']=='0'){
                         if( $row['title']=='Home'){
-                            $menu_data .= '<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-7">'.$this->tag->linkTo( '', $row['title']).'</li>';
+                            $menu_data .= '<li class="menu-item menu-item-type-custom menu-item-object-custom" id="menu_'.$row['id'].'">'.$this->tag->linkTo( '', $row['title']).'</li>';
 	                        $list_menu[$key]['chk']='1';
                         }else{
-                            $menu_data .= '<li class="menu-item menu-item-type-taxonomy menu-item-object-category">'.$this->tag->linkTo( 'category/view?id=' . $row['id'], $row['title']).'</li>';
+                            $menu_data .= '<li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu_'.$row['id'].'">'.$this->tag->linkTo( 'c/' . $row['no'], $row['title']).'</li>';
 	                        $list_menu[$key]['chk']='1';
                         }	                    
 	                }                            
@@ -280,7 +280,7 @@ class Elements extends Component
 	    	foreach($data as $key=>$post){
 				$html .= '<li>';
 			    $html .= '<span class="number">'.($key+1).'</span>';                	
-			    $html .= '<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
+			    $html .= '<a class="bold" href="'.$this->url->get('n/'.$post['id'].'/'.$post['caption_url']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
 			    $html .= '</li>';
 			}
 			// Store it in the cache
@@ -300,7 +300,7 @@ class Elements extends Component
 	    	foreach($data as $key=>$post){
 				$html .= '<li>';
 			    $html .= '<span class="number">'.($key+1).'</span>';                	
-			    $html .= '<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
+			    $html .= '<a class="bold" href="'.$this->url->get('n/'.$post['id'].'/'.$post['caption_url']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
 			    $html .= '</li>';
 			}
 			// Store it in the cache
@@ -319,7 +319,7 @@ class Elements extends Component
 	    	$html = '';
 	    	foreach($data as $key=>$post){
 				$html .= '<li>';
-				$html .='<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">';
+				$html .='<a class="bold" href="'.$this->url->get('n/'.$post['id'].'/'.$post['caption_url']).'" title="'.$post['caption'].'">';
                 $html .='<img width="247" height="158" src="'.$this->url->get('images/'.$post['filename']).'" class="attachment-thumb_247x158 wp-post-image" alt="'.$post['caption'].'"/>'.$post['caption'].'</a>';
 			    $html .= '</li>';
 			}
@@ -340,11 +340,11 @@ class Elements extends Component
 	    	foreach($data as $key=>$post){
 	    		$html .= '<li>';
 	    		if($key==0){
-					$html .='<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'];                                                    
+					$html .='<a class="bold" href="'.$this->url->get('n/'.$post['id'].'/'.$post['caption_url']).'" title="'.$post['caption'].'">'.$post['caption'];                                                    
                     $html .='<img width="650" height="480" src="'.$this->url->get('images/'.$post['filename']).'" class="attachment-thumb_301x216 wp-post-image" alt="'.$post['caption'].'"/></a>';
                     $html .='<p>'.$post['des'].'</p>';
 				}else{
-					$html .='<a class="bold" href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'"> '.$post['caption'].'</a>'; 
+					$html .='<a class="bold" href="'.$this->url->get('n/'.$post['id'].'/'.$post['caption_url']).'" title="'.$post['caption'].'"> '.$post['caption'].'</a>'; 
 				}
 				
 			}
@@ -364,7 +364,7 @@ class Elements extends Component
 	    	$html = '';
 	    	foreach($data as $key=>$post){
 				$html .= '<div class="item">';
-				$html .='<a href="'.$this->url->get('news/'.$post['id']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
+				$html .='<a href="'.$this->url->get('n/'.$post['id'].'/'.$post['caption_url']).'" title="'.$post['caption'].'">'.$post['caption'].'</a>';
                
 			    $html .= '</div>';
 			}
@@ -393,5 +393,19 @@ class Elements extends Component
 		$date = new DateTime($source);
 		echo $date->format('d/m/Y H:i'); 
 		//return date_format($date.' '.$time,'d/m/Y H:i');
+	}
+	function to_slug($str) {
+	    $str = trim(mb_strtolower($str));
+	    $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
+	    $str = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $str);
+	    $str = preg_replace('/(ì|í|ị|ỉ|ĩ)/', 'i', $str);
+	    $str = preg_replace('/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/', 'o', $str);
+	    $str = preg_replace('/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/', 'u', $str);
+	    $str = preg_replace('/(ỳ|ý|ỵ|ỷ|ỹ)/', 'y', $str);
+	    $str = preg_replace('/(đ)/', 'd', $str);
+	    $str = preg_replace('/[^a-z0-9-\s]/', '', $str);
+	    $str = preg_replace('/([\s]+)/', '-', $str);
+	    $str = str_replace(array('"',':'), '', $str);
+	    return $str;
 	}
 }

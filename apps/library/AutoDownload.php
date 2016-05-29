@@ -27,9 +27,27 @@ class AutoDownload
         $this->sdom = str_get_html($result);
     }
     public function GetData_Url($url){
+    	
+    	$headers[]  = "User-Agent:Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13";
+	    $headers[]  = "Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+	    $headers[]  = "Accept-Language:en-us,en;q=0.5";
+	    $headers[]  = "Accept-Encoding:gzip,deflate";
+	    $headers[]  = "Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+	    $headers[]  = "Keep-Alive:115";
+	    $headers[]  = "Connection:keep-alive";
+	    $headers[]  = "Cache-Control:max-age=0";
+	    
         $curl = curl_init();
         $agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36';
       
+      	//curl_setopt($curl, CURLOPT_URL, $url);
+	    
+	    //curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	    //curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
+	    
+	    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+	    curl_setopt($curl, CURLOPT_ENCODING, "gzip");
+    
         curl_setopt($curl, CURLOPT_USERAGENT, $agent);
 	    curl_setopt($curl, CURLOPT_URL, $url);
 	    //curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -38,6 +56,7 @@ class AutoDownload
         curl_setopt($curl, CURLOPT_FAILONERROR, true);
 	    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+	    curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, false);
     
 	    $result = curl_exec($curl);
 	    curl_close($curl);
@@ -153,7 +172,7 @@ class AutoDownload
         if( strpos($src, 'http')===FALSE){
 			$src = $url.$src ;
 		}
-		$this->log->info('src: '.$src);
+		
         $data = $this->GetData_Url($src);
         //var_dump($data); 
         $this->file_save($data,$file_full);
@@ -211,7 +230,7 @@ class AutoDownload
     }
     public function  get_content($condition,$url=''){
         $html = $this->get_innerHTML($condition);
-        $html = trim($this->replace_img_src($html,$url));
+        //$html = trim($this->replace_img_src($html,$url));
         if(substr($html,0,5)=='<br/>' ){
             $html = substr($html,5,strlen($html));
         }
@@ -230,15 +249,15 @@ class AutoDownload
     	$tags = array();
     	$index =0;
         foreach($this->sdom ->find($lememt) as $item) {                    
-            if(strpos($item->href, $from_string)!== FALSE)
-            {
+            //if(strpos($item->href, $from_string)!== FALSE)
+            //{
                 //$tag_no = str_replace($from_string,$to_string,$item->href);
                 //$tag_no = str_replace('/','',$tag_no);
                 
                 $tags[$index]['tag_name'] = $item->plaintext;
                 $tags[$index]['tag_no'] = $this->to_slug($item->plaintext);
                 $index++;
-            }
+            //}
         }
         return $tags;
     }
@@ -251,17 +270,19 @@ class AutoDownload
         foreach($list_img as $img)
         {
             $src = $img->src;
+            $this->log->info('src1: '.$src);
             if( strpos($src, 'http')===FALSE){
 				$src = $url.$src ;
 			}
-			$this->log->info('src: '.$src);
+			$this->log->info('src2: '.$src);
+			
             $data = $this->GetData_Url($src);           
             $extension = pathinfo($src, PATHINFO_EXTENSION);
             $img_name =$year.'/'.$month.'/'. uniqid(TRUE).'.'.$extension;
             //$file_name = $path_dl.'/'. $img_name;         
             $src_new = IMG_DATA_PATH.'/'.$img_name;   
             $this->file_save($data,$src_new);
-            $img->src = '../images/'.$img_name;
+            $img->src = '../../images/'.$img_name;
         }
         return $htmldom->save();
     }
@@ -287,6 +308,7 @@ class AutoDownload
         }
     }
     function to_slug($str) {
+    	$str = html_entity_decode($str );
 	    $str = trim(mb_strtolower($str));
 	    $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
 	    $str = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $str);

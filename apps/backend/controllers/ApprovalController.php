@@ -5,7 +5,7 @@ namespace Multiple\Backend\Controllers;
 use Phalcon\Mvc\Controller;
 use Multiple\Backend\Models\Products as Products;
 
-class ProductsController extends Controller
+class ApprovalController extends Controller
 {
 
 	public function indexAction()

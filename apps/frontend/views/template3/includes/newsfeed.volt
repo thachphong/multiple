@@ -12,10 +12,11 @@
                 </div>
             </div>
             <div class="col-lg-3 col-sm-3">
-                <form method="get" id="searchform" action="http://bloglamme.com">
-    <input class="text-search" type="text" value="Tìm kiếm mẹo vặt" name="s" id="s" onblur="if (this.value == '')  {this.value = 'Tìm kiếm mẹo vặt';}" onfocus="if (this.value == 'Tìm kiếm mẹo vặt') {this.value = '';}"/>
-    <input name="search" type="submit" id='buttom-search' class='buttom-search' value=""/>
-</form>            </div>
+            <div id="searchform1">
+                <!--<form method="get" id="searchform" action="{{url.get('search')}}">-->
+    <input class="text-search" type="text" name="s_name" id="s_name" placeholder="Tìm kiếm bài viết" />
+    <input name="search" type="button" id='buttom-search' class='buttom-search' value=""/>
+</div>            </div>
         </div>
     </div>
 </section>
