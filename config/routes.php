@@ -105,6 +105,16 @@ $router->removeExtraSlashes(true);
 				'controller' => 'useradm',
 				'action' => 1,
 			));
+			$router->add("/approval", array(
+				'module' => 'backend',
+				'controller' => 'approval',
+				'action' => 'index',
+			));
+			$router->add("/approval/:action", array(
+				'module' => 'backend',
+				'controller' => 'approval',
+				'action' => 1,
+			));
 
 			return $router;
 

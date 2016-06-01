@@ -30,7 +30,7 @@ class Elements extends Component
             ),
             'approval' => array(
                 'caption' => 'Duyệt bài',
-                'action' => 'index'
+                'action' => ''
             ),
             'download' => array(
                 'caption' => 'Download',

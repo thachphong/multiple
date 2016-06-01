@@ -38,6 +38,9 @@ class Posts extends Model
         $usr_data = Menu::find(array('status'=>1));
         return $usr_data;
     }
+    public function get_by_id($id){
+		return Posts::findFirst(array("id = :id:  AND status = 1 ",'bind' => array('id' => $id) ));
+	}
     public function get_new($limit = 6){
         /*$data = Posts::find(array(//'ref_link'=>$reflink,
         						  "order" => "id desc",
@@ -156,4 +159,43 @@ class Posts extends Model
         
         return $data[0]->cnt;
     }
+    public function be_get_posts($param){
+		$pql = "select *  from Multiple\Models\Posts
+				where  status=:status:
+				";
+		$sql_param['status']=$param['status'];
+		if(isset($param['add_date']) && strlen($param['add_date'])>0){
+			$sql_param['add_date']=$param['add_date'];
+			$pql .=" and add_date = :add_date: ";
+		}
+		$pql .=" ORDER BY id DESC ";
+		if(isset($param['limit'])){
+			$pql .=" limit ".$param['limit'];
+		}
+		if(isset($param['offset'])){
+			$pql .=" OFFSET ".$param['offset'];
+		}
+		$data = $this->modelsManager->executeQuery($pql,$sql_param);    
+        
+        return $data;
+	}
+	public function be_count_posts($param){
+		$pql = "select count(*) cnt  from Multiple\Models\Posts
+				where  status=:status:
+				";
+		$sql_param['status']=$param['status'];
+		if(isset($param['add_date']) && strlen($param['add_date'])>0){
+			$sql_param['add_date']=$param['add_date'];
+			$pql .=" and add_date = :add_date: ";
+		}
+		$pql .=" ORDER BY id DESC ";
+		if(isset($param['limit'])){
+			$pql .=" limit ".$param['limit'];
+		}
+		if(isset($param['offset'])){
+			$pql .=" OFFSET ".$param['offset'];
+		}
+		$data = $this->modelsManager->executeQuery($pql,$sql_param);    
+		return $data[0]->cnt;
+	}
 }
