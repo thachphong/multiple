@@ -44,4 +44,7 @@ class IndexController extends Controller
         $this->view->right1  = $right1;
        // echo 'xxx';
 	}
+	public function route404Action(){
+		
+	}
 }

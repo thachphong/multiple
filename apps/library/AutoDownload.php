@@ -240,7 +240,7 @@ class AutoDownload
         foreach($this->sdom ->find($lememt) as $item) {                    
             if(strpos($item->href, $from_string)!== FALSE)
             {
-                $item->href = str_replace($from_string,$to_string,$item->href);
+                $item->href = preg_replace($from_string,$to_string,$item->href);
             }
         }
         $this->sdom->save();

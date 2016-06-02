@@ -64,9 +64,9 @@
 
         {%for item in 1..totalpage%}
             {%if page == item %}
-                <li class="active"><span class="selected">{{item}}</span></li>
+                <li class="active"><span class="page_link selected" id="page_{{item}}">{{item}}</span></li>
             {%else%}
-                <li><a href="javascript:void(0)" class="page_link" id="page_{{item}}}" >{{item}}</a></li>
+                <li><a href="javascript:void(0)" class="page_link" id="page_{{item}}" >{{item}}</a></li>
             {%endif%}
         {%endfor%}
 

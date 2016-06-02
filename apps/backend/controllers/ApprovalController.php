@@ -39,9 +39,15 @@ class ApprovalController extends Controller
         	$status = $this->request->getPost('status');
         	$post = new Posts();
         	foreach($id_dl as $item){        		
-        		$db = $post->get_by_id($item);
-				$db->status = $status[$item];
-				$db->save();
+        		$db = $post->get_by_id($item);				
+				if($status[$item]=='2'){
+					$file_name = str_replace("\\",'/', IMG_DATA_PATH.$db->filename);				
+					$db->delete();
+					unlink($file_name);
+				}else{
+					$db->status = $status[$item];
+					$db->save();
+				}
 			}
 			$result['status']='OK';
 			$result['msg']='Cập nhật thành công !';
@@ -58,14 +64,15 @@ class ApprovalController extends Controller
 		$this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
 		
 		if ($this->request->isPost()) {
+			$page = 1;
 			$search['status'] =  $this->request->getPost('status');
         	$search['add_date'] = $this->request->getPost('search_date');
-		
+			$page = $this->request->getPost('page');
 	    	$db = new Posts();	
 	    	
 			$total = 10 ;
 	        $totalpage = 1;
-	        $page = 1;
+	        
 	        $from = ($page-1)*$total;
 	        
 	        $search['limit'] = $total;

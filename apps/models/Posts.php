@@ -39,7 +39,7 @@ class Posts extends Model
         return $usr_data;
     }
     public function get_by_id($id){
-		return Posts::findFirst(array("id = :id:  AND status = 1 ",'bind' => array('id' => $id) ));
+		return Posts::findFirst(array("id = :id:  ",'bind' => array('id' => $id) ));
 	}
     public function get_new($limit = 6){
         /*$data = Posts::find(array(//'ref_link'=>$reflink,
@@ -188,13 +188,13 @@ class Posts extends Model
 			$sql_param['add_date']=$param['add_date'];
 			$pql .=" and add_date = :add_date: ";
 		}
-		$pql .=" ORDER BY id DESC ";
+		/*$pql .=" ORDER BY id DESC ";
 		if(isset($param['limit'])){
 			$pql .=" limit ".$param['limit'];
 		}
 		if(isset($param['offset'])){
 			$pql .=" OFFSET ".$param['offset'];
-		}
+		}*/
 		$data = $this->modelsManager->executeQuery($pql,$sql_param);    
 		return $data[0]->cnt;
 	}

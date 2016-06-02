@@ -12,7 +12,7 @@ class NewsController extends Controller
 	public function indexAction($id)
 	{
 		
-		$this->view->name= 'abc';
+		//$this->view->name= 'abc';
 		//return $this->response->redirect('login');
         $url =  $this->request->getURI();
         $abc =1;

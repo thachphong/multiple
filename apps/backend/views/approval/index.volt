@@ -28,7 +28,7 @@
 		<div class="col-md-2">
 			<div class="form-group">
 			      <label for="from_date">Ngày</label>
-			      <input type="text" class="form-control" id="search_date" name="search_date" placeholder="YYYYMMDD" value="" >
+			      <input type="text" class="form-control" id="search_date" name="search_date" placeholder="YYYY-MM-DD" value="" >
 			      
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 		<div class="col-md-2">			
 			<div class="form-group" >
 				<br />				
-				<button style="display: none;" id="btn_download" class="btn btn-success" name="search">Download Tin</button>
+				<button  id="btn_download" class="btn btn-success" name="search">Download Tin</button>
 			</div>
 		</div>
 		
@@ -71,7 +71,9 @@ $(document).ready(function(){
         var arr = $('#form_approval').serializeArray();
         Pho_json_ajax('POST',"{{url.get('approval/update')}}" ,arr,function(data){
             if(data.status =='OK'){
-                Pho_message_box('Thông báo',data.msg); 
+                Pho_message_box('Thông báo',data.msg,function(){
+                	$('.selected').click();
+                }); 
             }else{
                 Pho_message_box_error('Lỗi',data.msg);
             }
@@ -80,57 +82,25 @@ $(document).ready(function(){
 	$(document).on('click','#btn_search',function(){		
 	
 		var sreach_status = $('#sreach_status').val();		
-		Pho_html_ajax('POST',"{{url.get('approval/listdata')}}" ,{ status: sreach_status, search_date: $('#search_date').val() },function(data){
+		Pho_html_ajax('POST',"{{url.get('approval/listdata')}}" ,{ status: sreach_status, search_date: $('#search_date').val(),page:1 },function(data){
 				$('#data_search').empty();
 				$('#data_search').append(data);
             });	  
-		if(sreach_status == 1)
+		/*if(sreach_status == 1)
 		{
 			$('#btn_download').show();
 		}else{
 			$('#btn_download').hide();
-		}		
+		}	*/	
 	});
+	$(document).on('click','.page_link',function(){
+		var sreach_status = $('#sreach_status').val();	
+		var page_number = $(this).attr('id').replace('page_','');	
+		Pho_html_ajax('POST',"{{url.get('approval/listdata')}}" ,{ status: sreach_status, search_date: $('#search_date').val(),page:page_number },function(data){
+				$('#data_search').empty();
+				$('#data_search').append(data);
+        });	
+	});	
 });	
-function show_update_result(data)
-{	
-	var class_color ='color_red';
-	if(data.status=='OK'){		
-		class_color ='color_blue';
-		$( "#basicModal" ).dialog({
-	        modal: true,       
-	        draggable:false,
-	        closeOnEscape: false,
-	        title: "Thành công",
-	        width:400,
-	        position: { 
-			    my: 'center',
-			    at: 'center',
-			    of: $('body')
-			 }	,        
-	        buttons: {
-	            "OK": function() {
-	            	//reset_input();
-	                //location.href="{$baseurl}approval";	
-	                $('#btn_search').click();
-	                $( this ).dialog( "close" );                
-	            },
-	           
-	        },
-	        open: function() {						
-				$(".ui-dialog-titlebar-close").hide();	
-				//$(".ui-dialog-titlebar").hide();
-				$("body").css({ overflow: 'hidden' })			
-			},
-			close: function() {
-				$(".ui-dialog-titlebar-close").show();
-				//$(".ui-dialog-titlebar").hide();
-				$("body").css({ overflow: 'inherit' })
-			}	
-		});
-		
-	}
-	
-	
-}
+
 </script>

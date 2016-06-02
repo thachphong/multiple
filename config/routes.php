@@ -115,7 +115,18 @@ $router->removeExtraSlashes(true);
 				'controller' => 'approval',
 				'action' => 1,
 			));
-
+			$router->add("/posts/:params", array(
+				'module' => 'backend',
+				'controller' => 'posts',
+				'action' => 'index',
+				'params' => 1
+			));
+			$router->notFound(array(
+				'module' => 'frontend',
+			    "controller" => "index",
+			    "action" => "route404"
+			));
+			
 			return $router;
 
 		
