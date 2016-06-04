@@ -79,7 +79,7 @@ class AutoDownload
     }
     public function get_innerHTML($condition){
         /*$res ='';        
-        foreach($this->sdom->find('div[id$="main_article"]',1) as $input) {
+        foreach($this->sdom->find('div[id$="main_article"]',1) as $input){
              $res .= $input->innertext().'<br />';
         }
          return $res;*/
@@ -147,6 +147,24 @@ class AutoDownload
             return $array;
 		}*/
         return  $this->sdom->find($condition,0)->src;
+    }
+    public function get_link($condition,$url =''){
+        $arr_con = explode(';',$condition);   
+        $result = array();     
+        foreach($arr_con as $item){
+            $elements = $this->sdom->find($item);            
+    		foreach ($elements as $element) {                
+                $data['link'] = $element->href ;
+                if(strlen($url)>0){
+					if(strpos($url,$data['link']) === FALSE){
+						$data['link'] =str_replace('//','/', $url.$data['link']);
+					}
+				}
+                $data['title'] = $element->title ;
+                $result[] = $data;
+    		}    
+        }  
+        return  $result;
     }
     public function get_img($condition,$url=''){
         $year = date('Y');

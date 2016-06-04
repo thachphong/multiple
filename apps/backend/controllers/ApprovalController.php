@@ -7,7 +7,13 @@ use Multiple\Models\Posts;
 
 class ApprovalController extends Controller
 {
-
+	public function initialize()
+    {
+        $auth = $this->session->get('auth');
+        if(isset($auth['id'])==FALSE){            
+            return $this->response->redirect('useradm/login/',FALSE);
+        }
+    }
 	public function indexAction()
 	{
 		$photos=array();

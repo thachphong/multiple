@@ -101,6 +101,17 @@ $(document).ready(function(){
 				$('#data_search').append(data);
         });	
 	});	
+	$(document).on('click','#btn_download',function(){
+        Pho_json_ajax('POST',"{{url.get('download/dlall')}}" ,null,function(data){
+            if(data.status =='OK'){
+                Pho_message_box('Thông báo',data.msg,function(){
+                	//$('.selected').click();
+                }); 
+            }else{
+                Pho_message_box_error('Lỗi',data.msg);
+            }
+        });
+    });
 });	
 
 </script>

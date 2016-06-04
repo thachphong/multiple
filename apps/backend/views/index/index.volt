@@ -1,5 +1,5 @@
 <div class="section-header">
-	<h2>Random Albums</h2>
+	<h2>Wellcome Administrator tool</h2>
 </div>
 
 

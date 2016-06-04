@@ -19,7 +19,14 @@ class DownloadTemp extends Model
         $this->setSource("download_temp");
     }
     public function get_All(){
-        $usr_data = Menu::find(array('status'=>1));
+        $usr_data = DownloadTemp::find(array('status'=>1));
         return $usr_data;
+    }
+    public function check_exists($url){    
+    	$res = DownloadTemp::find(array('link_dl'=>$url));
+        if( $res == FALSE){
+			return TRUE;
+		}
+		return FALSE;
     }   
 }

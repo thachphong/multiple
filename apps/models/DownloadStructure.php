@@ -15,16 +15,18 @@ class DownloadStructure extends Model
     public $from_string;
     public $to_string;
     public $sort;
+    public $ctg_flg;
         
     public function initialize()
     {
         $this->setSource("download_structure");
     }
-    public function get_by_ref_link($reflink){
+    public function get_by_ref_link($reflink,$ctg_flg = 0){
         //$data = DownloadStructure::find(array('ref_link'=>$reflink,  "order" => "sort"));
         $data = DownloadStructure::query()
                 ->where("ref_link = :ref_link:")  
-                ->bind(array("ref_link" => $reflink))
+                ->addwhere("ctg_flg = :ctg_flg:")
+                ->bind(array("ref_link" => $reflink,'ctg_flg'=>$ctg_flg))
                 ->order("sort")
                 ->execute();
         return $data;
