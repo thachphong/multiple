@@ -165,23 +165,29 @@ class DownloadController extends Controller
             $data_st = $structure->get_by_ref_link($match[0],1);            
 			$dl->Set_URL($item->link);
 			$link_get = array();
+			$this->logger->info('---------1');
 			foreach($data_st as $row){
                 if($row->key=='category_link'){
                 	$link_get = $dl->get_link($row->xpath,$row->ref_link);
                 }
             }
+            $this->logger->info('---------2');
             foreach($link_get as $link){
             	$dltemp = new DownloadTemp();
+            	$this->logger->info('---------3');
+            	$this->logger->info('link: '.$link['link']);
+            	
             	if($dltemp->check_exists($link['link'])){
-					if($this->download_by_link($link['link']))
+            		$this->logger->info('---------4');
+					if($this->download_by_link($link['link'],$item->menu_id))
 	            	{
-						
+						$this->logger->info('---------5');
 						$dltemp->link_dl = $link['link'];
 						$dltemp->status = 1;
 						$dltemp->caption = $link['title'];
 						$dltemp->save();
 					}
-				}            	
+				}          	
             }
 		}
 		$result['status']='OK';

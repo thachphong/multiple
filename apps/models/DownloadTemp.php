@@ -23,10 +23,17 @@ class DownloadTemp extends Model
         return $usr_data;
     }
     public function check_exists($url){    
-    	$res = DownloadTemp::find(array('link_dl'=>$url));
-        if( $res == FALSE){
+    	//$res = DownloadTemp::find(array('link_dl'=>$url));
+    	$pql = "SELECT count(*) cnt FROM Multiple\Models\DownloadTemp 
+    			where link_dl = :link_dl:";
+		$total = $this->modelsManager->executeQuery($pql,array( 'link_dl' => $url));
+		if($total[0]->cnt == 0){
 			return TRUE;
 		}
+		/*return $total[0]->cnt;
+        if( count($res) == 0){
+			return TRUE;
+		}*/
 		return FALSE;
     }   
 }

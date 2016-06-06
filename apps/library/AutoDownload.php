@@ -157,7 +157,7 @@ class AutoDownload
                 $data['link'] = $element->href ;
                 if(strlen($url)>0){
 					if(strpos($url,$data['link']) === FALSE){
-						$data['link'] =str_replace('//','/', $url.$data['link']);
+						$data['link'] = $url.$data['link'];
 					}
 				}
                 $data['title'] = $element->title ;
