@@ -165,30 +165,42 @@ class DownloadController extends Controller
             $data_st = $structure->get_by_ref_link($match[0],1);            
 			$dl->Set_URL($item->link);
 			$link_get = array();
-			$this->logger->info('---------1');
+			//$this->logger->info('---------1');
 			foreach($data_st as $row){
                 if($row->key=='category_link'){
                 	$link_get = $dl->get_link($row->xpath,$row->ref_link);
                 }
             }
-            $this->logger->info('---------2');
+            //$this->logger->info('---------2');
             foreach($link_get as $link){
             	$dltemp = new DownloadTemp();
-            	$this->logger->info('---------3');
+            	//$this->logger->info('---------3');
             	$this->logger->info('link: '.$link['link']);
             	
             	if($dltemp->check_exists($link['link'])){
-            		$this->logger->info('---------4');
-					if($this->download_by_link($link['link'],$item->menu_id))
-	            	{
-						$this->logger->info('---------5');
+            		//$this->logger->info('---------4');
+					/*if($this->download_by_link($link['link'],$item->menu_id))
+	            	{*/
+						//$this->logger->info('---------5');
 						$dltemp->link_dl = $link['link'];
-						$dltemp->status = 1;
+						$dltemp->status = 0;
 						$dltemp->caption = $link['title'];
 						$dltemp->save();
-					}
+					//}
 				}          	
             }
+            $temp = new DownloadTemp();
+            $list=$temp->get_All(0);
+            foreach($list as $row){
+				if($this->download_by_link($row->link_dl,$item->menu_id))
+	            {
+						//$this->logger->info('---------5');
+						//$dltemp->link_dl = $link['link'];
+						$row->status = 0;
+						//$dltemp->caption = $link['title'];
+						$dltemp->save();
+				}
+			}
 		}
 		$result['status']='OK';
         $result['msg']='Download thành công !';
@@ -211,6 +223,7 @@ class DownloadController extends Controller
             $title ='';
             $file_name ='';
             $content ='';
+            $datetime = '';
             $tags = array();
             foreach($data_st as $row){
                 if($row->key=='title'){
@@ -229,10 +242,14 @@ class DownloadController extends Controller
                 	//$this->logger->info('des');    
                 	$des = $dl->get_text($row->xpath);
                 }else if($row->key=='tag'){
-                	$this->logger->info('tag');  
-                	$this->logger->info($row->xpath);     
+                	//$this->logger->info('tag');  
+                	//$this->logger->info($row->xpath);     
                 	$tags = $dl->get_tag($row->xpath,$row->from_string,'');
-                	
+                }else if($row->key=='datetime'){
+                	$this->logger->info('datetime');  
+                	//$this->logger->info($row->xpath);     
+                	$datetime = $dl->get_text($row->xpath);
+                	$this->logger->info($datetime);  
                 }else if($row->key=='content'){
                 	//$this->logger->info('content'); 
                     /*foreach($data_st as $item){
@@ -259,8 +276,17 @@ class DownloadController extends Controller
 			//$this->logger->info('----------------------------');
 			//$this->logger->info($content);
     		$resource = $match[0];
-    		
-    	    
+    		$add_date = date('Y-m-d');
+    		$add_time = date('H:i');
+    	    if(strlen($datetime)> 0){
+				preg_match('/([0-9\/]){8,10}/',$datetime,$match);	
+				$date_format = date_create_from_format('d/m/Y', $match[0]);			 
+				$add_date = $date_format->format('Y-m-d');
+				preg_match('/([0-9\:]){5}/',$datetime,$match2);
+				$add_time = $match2[0];
+				$this->logger->info($add_date);
+				$this->logger->info($add_time);
+			}
     	    $file_ext=	pathinfo($file_name,PATHINFO_EXTENSION);
     	    $title = html_entity_decode($title);
     		$post = new Posts();
@@ -274,8 +300,8 @@ class DownloadController extends Controller
     	    $post->des = $des ;
     	    $post->content = $content;
             $post->menu_id = $menu_id;
-            $post->add_date = date('Y-m-d');
-            $post->add_time = date('H:i');
+            $post->add_date = $add_date;
+            $post->add_time = $add_time;
     	    $post->save(); 
     	    
     	    $tags_model = new Tags();

@@ -249,6 +249,8 @@ class AutoDownload
     public function  get_content($condition,$url=''){
         $html = $this->get_innerHTML($condition);
         //$html = trim($this->replace_img_src($html,$url));
+        $html = trim($this->remove_link_img($html));
+        $html = $this->remove_link_relate($html);
         if(substr($html,0,5)=='<br/>' ){
             $html = substr($html,5,strlen($html));
         }
@@ -303,6 +305,30 @@ class AutoDownload
             $img->src = '../../images/'.$img_name;
         }
         return $htmldom->save();
+    }
+    public function remove_link_img($html){
+        //$year = date('Y');
+        //$month = date('m');
+        //$this->check_folder_download($year,$month);
+        $htmldom = str_get_html($html);
+        $list_img = $htmldom->find('img');
+        foreach($list_img as $img)
+        {            
+            $img->parentNode()->href='';
+        }
+        return $htmldom->save();
+    }
+    public function remove_link_relate($html){
+        $vt1 = strpos($html,'&gt;&gt;');
+        
+        while($vt1){
+	        $html = substr_replace($html,'',$vt1,8);
+			$vt2 = strpos($html,'<a',$vt1 );
+			$vt3 = strpos($html,'</a>',$vt2 );
+			$html = substr_replace($html,'',$vt2,$vt3-$vt2);
+			$vt1 = strpos($html,'&gt;&gt;');
+		}
+		return $html;
     }
     public function check_folder_download($year,$month){
         $y_path = IMG_DATA_PATH.'/'. $year;

@@ -18,9 +18,15 @@ class DownloadTemp extends Model
     {
         $this->setSource("download_temp");
     }
-    public function get_All(){
-        $usr_data = DownloadTemp::find(array('status'=>1));
-        return $usr_data;
+    public function get_All($status){
+    	$data = DownloadTemp::query()
+                ->where("status = :status:")                
+                ->bind(array("status" => $status))
+                ->order("id_dl desc")
+                ->execute();
+        return $data;
+        /*$usr_data = DownloadTemp::find(array('status'=>1));
+        return $usr_data;*/
     }
     public function check_exists($url){    
     	//$res = DownloadTemp::find(array('link_dl'=>$url));
