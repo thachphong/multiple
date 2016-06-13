@@ -32,13 +32,17 @@
 			      
 			</div>
 		</div>
-		<!--<div class="col-md-2">
+		<div class="col-md-2">
 			<div class="form-group">
-			      <label for="to_date">Đến ngày</label>
-			      <input type="text" class="form-control" id="to_date" name="to_date" placeholder="YYYYMMDD" value="{get_sysdate()}" >
-			      
+			      <label for="to_date">Chuyên mục</label>
+			      <select type="text"  class="form-control" id="sreach_menu" name="sreach_menu" value="" >	
+			      	<option value=""> </option>
+			      	{%for  key,row in listmenu %}
+			        <option value="{{row.id}}">{{row.title}}</option>
+			        {%endfor%}
+			      </select>	
 			</div>
-		</div>-->
+		</div>
 		<div class="col-md-2">
 			<div class="form-group" >
 				<br />
@@ -82,7 +86,7 @@ $(document).ready(function(){
 	$(document).on('click','#btn_search',function(){		
 	
 		var sreach_status = $('#sreach_status').val();		
-		Pho_html_ajax('POST',"{{url.get('approval/listdata')}}" ,{ status: sreach_status, search_date: $('#search_date').val(),page:1 },function(data){
+		Pho_html_ajax('POST',"{{url.get('approval/listdata')}}" ,{ status: sreach_status, search_date: $('#search_date').val(),page:1 ,menu_id:$('#sreach_menu').val()},function(data){
 				$('#data_search').empty();
 				$('#data_search').append(data);
             });	  
@@ -96,13 +100,13 @@ $(document).ready(function(){
 	$(document).on('click','.page_link',function(){
 		var sreach_status = $('#sreach_status').val();	
 		var page_number = $(this).attr('id').replace('page_','');	
-		Pho_html_ajax('POST',"{{url.get('approval/listdata')}}" ,{ status: sreach_status, search_date: $('#search_date').val(),page:page_number },function(data){
+		Pho_html_ajax('POST',"{{url.get('approval/listdata')}}" ,{ status: sreach_status, search_date: $('#search_date').val(),page:page_number ,menu_id:$('#sreach_menu').val()},function(data){
 				$('#data_search').empty();
 				$('#data_search').append(data);
         });	
 	});	
 	$(document).on('click','#btn_download',function(){
-        Pho_json_ajax('POST',"{{url.get('download/dlall')}}" ,null,function(data){
+        Pho_json_ajax('POST',"{{url.get('download/dlall')}}" ,{ menu_id: $('#sreach_menu').val()	},function(data){
             if(data.status =='OK'){
                 Pho_message_box('Thông báo',data.msg,function(){
                 	//$('.selected').click();

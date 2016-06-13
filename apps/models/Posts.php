@@ -48,7 +48,7 @@ class Posts extends Model
         						  ));*/
         $data = Posts::query()
                 ->where("status = 1")  
-                ->order("id desc")
+                ->order("add_date desc,add_time desc")
                 ->limit($limit)
                 ->execute();
         return $data;
@@ -168,6 +168,10 @@ class Posts extends Model
 			$sql_param['add_date']=$param['add_date'];
 			$pql .=" and add_date = :add_date: ";
 		}
+		if(isset($param['menu_id']) && strlen($param['menu_id'])>0){
+			$sql_param['menu_id']=$param['menu_id'];
+			$pql .=" and menu_id = :menu_id: ";
+		}
 		$pql .=" ORDER BY id DESC ";
 		if(isset($param['limit'])){
 			$pql .=" limit ".$param['limit'];
@@ -187,6 +191,10 @@ class Posts extends Model
 		if(isset($param['add_date']) && strlen($param['add_date'])>0){
 			$sql_param['add_date']=$param['add_date'];
 			$pql .=" and add_date = :add_date: ";
+		}
+		if(isset($param['menu_id']) && strlen($param['menu_id'])>0){
+			$sql_param['menu_id']=$param['menu_id'];
+			$pql .=" and menu_id = :menu_id: ";
 		}
 		/*$pql .=" ORDER BY id DESC ";
 		if(isset($param['limit'])){

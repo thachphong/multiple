@@ -25,6 +25,10 @@ class AutoDownload
     public function Set_URL($url){
         $result = $this->GetData_Url($url);
         $this->sdom = str_get_html($result);
+        if( $this->sdom  != FALSE){
+			return TRUE;
+		}
+		return FALSE;
     }
     public function GetData_Url($url){
     	
@@ -75,7 +79,11 @@ class AutoDownload
     		}    
         }
         return $res;*/
-        return  $this->sdom->find($condition,0)->plaintext;
+        $element = $this->sdom->find($condition,0);
+        if($element != NULL){
+			return $element->plaintext;
+		}
+        return  '';
     }
     public function get_innerHTML($condition){
         /*$res ='';        
@@ -84,7 +92,11 @@ class AutoDownload
         }
          return $res;*/
         //return  $this->sdom->find('div#main_article article',0)->innertext();
-		return  $this->sdom->find($condition,0)->innertext();
+        $element = $this->sdom->find($condition,0);
+        if( $element !=  NULL){
+			return $element->innertext();
+		}
+		return  '';
     }
     public function file_save($data,$filename)
 	{		
@@ -108,11 +120,18 @@ class AutoDownload
         if($count=='1'){
             //$count = 0; // remove first item
             foreach($arr_con as $item_rem){
-                $item =$this->sdom ->find($item_rem,0) ;
+                $item =$this->sdom->find($item_rem,0) ;
                 //$parent = $item->parentnode;
                 //$parent->removeChild($item);
-               // $this->logger->info('outer: '.$item->outertext);
-                $item->outertext = '';
+                //$this->logger->info('outer: '.$item->outertext());
+                if($item != null){
+					$item->outertext = '';
+				}
+                
+                /*foreach($this->sdom->find($item_rem) as $item) {
+                	$this->log->info('outer: '.$item->outertext);
+				    $item->outertext = '';
+				}*/
             }
         }else{
             foreach($arr_con as $item_rem){
@@ -146,13 +165,18 @@ class AutoDownload
             }
             return $array;
 		}*/
-        return  $this->sdom->find($condition,0)->src;
+		$element =  $this->sdom->find($condition,0);
+		if($element !=NULL){
+			return $element->src;
+		}
+        return  '';
     }
     public function get_link($condition,$url =''){
         $arr_con = explode(';',$condition);   
         $result = array();     
         foreach($arr_con as $item){
-            $elements = $this->sdom->find($item);            
+            $elements = $this->sdom->find($item);    
+            $this->log->info('item: '.$item);        
     		foreach ($elements as $element) {                
                 $data['link'] = $element->href ;
                 if(strlen($url)>0){
@@ -161,7 +185,10 @@ class AutoDownload
 					}
 				}
                 $data['title'] = $element->title ;
-                $result[] = $data;
+                if(isset($data['title']) && strlen($data['title']) > 0){
+					$result[] = $data;	
+				}
+                
     		}    
         }  
         return  $result;
@@ -221,7 +248,12 @@ class AutoDownload
 		foreach ($elements as $element) {
 			return $element->nodeValue ;
 		}*/
-        return  $this->sdom->find($condition,0)->plaintext;
+		//$this->log->info('condition: '.$condition);
+		$element = $this->sdom->find($condition,0);
+		if($element != NULL){
+			return $element->plaintext;
+		}
+        return  '';
     }
     public function Xpath_GetContent($obj_xpath,$condition){
         $res ='';
@@ -307,9 +339,9 @@ class AutoDownload
         return $htmldom->save();
     }
     public function remove_link_img($html){
-        //$year = date('Y');
-        //$month = date('m');
-        //$this->check_folder_download($year,$month);
+        if($html == NULL || strlen($html) == 0){
+			return '';
+		}
         $htmldom = str_get_html($html);
         $list_img = $htmldom->find('img');
         foreach($list_img as $img)

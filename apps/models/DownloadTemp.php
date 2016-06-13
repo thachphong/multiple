@@ -10,7 +10,7 @@ class DownloadTemp extends Model
     public $status;
     public $link_dl;
     public $caption;
-    public $des;
+    public $menu_id;
     public $img_link;
     public $addtime;
         
@@ -18,10 +18,11 @@ class DownloadTemp extends Model
     {
         $this->setSource("download_temp");
     }
-    public function get_All($status){
+    public function get_All($status,$menu_id){
     	$data = DownloadTemp::query()
-                ->where("status = :status:")                
-                ->bind(array("status" => $status))
+                ->where("status = :status:")   
+                ->addwhere("menu_id = :menu_id:")              
+                ->bind(array("status" => $status,'menu_id'=>$menu_id))
                 ->order("id_dl desc")
                 ->execute();
         return $data;

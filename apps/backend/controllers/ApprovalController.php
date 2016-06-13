@@ -4,6 +4,7 @@ namespace Multiple\Backend\Controllers;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\Controller;
 use Multiple\Models\Posts;
+use Multiple\Models\Menu;
 
 class ApprovalController extends Controller
 {
@@ -19,7 +20,7 @@ class ApprovalController extends Controller
 		$photos=array();
     	$db = new Posts();	
     	
-		$total = 10 ;
+		$total = 20 ;
         $totalpage = 1;
         $page = 1;
         $from = ($page-1)*$total;
@@ -27,11 +28,11 @@ class ApprovalController extends Controller
         
         $totalrow = $db->get_totalrow(2);
         $totalpage = ceil($totalrow/$total);
-        
+        $menu = new Menu();
         
         $this->view->page = $page;
         $this->view->totalpage= $totalpage;
-        	
+        $this->view->listmenu = $menu->get_All();	
 		$this->view->datapost = $db->get_by_menu(2,10,$from);	
 		
 	}
@@ -73,10 +74,11 @@ class ApprovalController extends Controller
 			$page = 1;
 			$search['status'] =  $this->request->getPost('status');
         	$search['add_date'] = $this->request->getPost('search_date');
+        	$search['menu_id'] = $this->request->getPost('menu_id');
 			$page = $this->request->getPost('page');
 	    	$db = new Posts();	
 	    	
-			$total = 10 ;
+			$total = 20 ;
 	        $totalpage = 1;
 	        
 	        $from = ($page-1)*$total;
