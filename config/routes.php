@@ -121,11 +121,11 @@ $router->removeExtraSlashes(true);
 				'action' => 'index',
 				'params' => 1
 			));
-			$router->notFound(array(
+			/*$router->notFound(array(
 				'module' => 'frontend',
 			    "controller" => "index",
 			    "action" => "route404"
-			));
+			));*/
 			
 			return $router;
 
