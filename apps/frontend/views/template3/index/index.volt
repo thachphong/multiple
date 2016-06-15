@@ -239,11 +239,17 @@
 	        </script>
 	    </div>
         		<div id="eweb_post_by_cate_3-3" class="item-cate-2 item-cate-3 item-cate">            <div class="subcat-2"><span>	            <a href="http://bloglamme.com/song-khoe/" title="">
-	            	<i class="fa fa-"></i> Thời sự	            </a>
+	            	<i class="fa fa-"></i> Show-biz	            </a>
             </span></div>            <div class="list-posts">
                 <ul>
-                	                    {{ elements.getMidlePost() }}
-                	                </ul>
+                	                    <!--{-{ elements.getMidlePost() }-}-->
+                {% for key,item in midle3 %}
+                	<li>
+				<a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">
+                <img width="247" height="158" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_247x158 wp-post-image" alt="{{item.caption}}"/>{{item.caption}}</a>
+			    </li>
+				{% endfor %}  
+                </ul>
             </div>
 
         </div><div id="text-15" class="widget_text item-cate">			
@@ -284,7 +290,28 @@
                 {% endfor %}        
                 </ul>
             </div>
-        </div>		
+        </div>
+        <div id="" class="item-cate-2 item-cate">            
+			<div class="subcat-2">
+				<span><a href="/mang-xa-hoi/" title="Chuyện lạ"><i class="fa fa-fa fa-graduation-cap"></i>Chuyện lạ</a></span>
+			</div>            
+			<div class="list-posts">
+                <ul>
+                {% for key,item in right2 %}
+                            	<li>
+                                <a class="bold" href="{{url.get('n/'~item.id~'/'~item.caption_url)}}" title="{{item.caption}}">{{item.caption}}
+                                {% if key == '0' %}
+                                	
+                                    <img width="650" height="480" src="{{url.get('images/'~item.filename)}}" class="attachment-thumb_482x340 wp-post-image" alt="{{item.caption}}"/> </a>
+                                    <p>{{item.des}}</p>
+                                {% else %}
+                                	</a>
+                                {% endif %}
+                                </li>
+                {% endfor %}        
+                </ul>
+            </div>
+        </div>				
         <!--<div id="eweb_post_by_cate_2-2" class="item-cate-2 item-cate">            
         	<div class="subcat-2"><span><a href="http://bloglamme.com/me-sanh-dieu/" title=""><i class="fa fa-"></i> Mẹ sành điệu</a></span></div>            <div class="list-posts">
                 <ul>

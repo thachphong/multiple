@@ -222,6 +222,38 @@ class DownloadController extends Controller
         $this->response->setJsonContent($result);
         return $this->response;
 	}
+	public function dlagainAction(){
+    	$this->view->disable();
+    	$result['status']='NOT';
+        $result['msg']='';
+        $menu_id = $this->request->getPost('menu_id');
+        if(strlen($menu_id)>0){
+        	$ctg = new DownloadCategory();
+			$category = $ctg->get_All($menu_id);
+		}else{
+			$category = DownloadCategory::find();
+		}
+				
+		foreach($category as $item)
+		{			
+            $temp = new DownloadTemp();
+            $list=$temp->get_All(0,$item->menu_id);
+            foreach($list as $row){
+				if($this->download_by_link($row->link_dl,$item->menu_id))
+	            {
+						//$this->logger->info('---------5');
+						//$dltemp->link_dl = $link['link'];
+						$row->status = 1;
+						//$dltemp->caption = $link['title'];
+						$row->save();
+				}
+			}
+		}
+		$result['status']='OK';
+        $result['msg']='Download thành công !';
+        $this->response->setJsonContent($result);
+        return $this->response;
+	}
 	public function download_by_link($url,$menu_id){
 		$dl = new AutoDownload();
             $structure= new DownloadStructure();

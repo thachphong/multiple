@@ -15,12 +15,14 @@ class IndexController extends Controller
 		//$data8 = $db->get_by_menu(8,6);// Khoa học công nghệ
 		$data6 = $db->get_by_menu(6,6);// tinh yeu gioi tinh
 		$data7 = $db->get_by_menu(7,6);// tâm sự
-		$data2 = $db->get_by_menu(2,8);// xa hoi
+		$data2 = $db->get_by_menu(3,8);// xa hoi/thoi su
 		$data3 = $db->get_by_menu(5,3);// suc khoe
 		$data4 = $db->get_by_menu(4,6);// an ninh - hinh su
 		$data5 = $db->get_by_menu(8,6);// Khoa học công nghệ
-		$data1 = $db->get_by_menu(9,10);// the gioi
+		$data1 = $db->get_by_menu(12,10);// the gioi
 		$right1 = $db->get_by_menu(10,6);// mang xa hoi
+		$right2 = $db->get_by_menu(13,6);// chuyen la
+		$midle3 = $db->get_by_menu(11,6);// showbiz
 		/*$newtab_left =array();
 		$newtab_right =array();
 		foreach($newpost as $key ->$item){
@@ -42,6 +44,8 @@ class IndexController extends Controller
         $this->view->data6  = $data6;
         $this->view->data7  = $data7;
         $this->view->right1  = $right1;
+        $this->view->right2  = $right2;
+        $this->view->midle3  = $midle3;
        // echo 'xxx';
 	}
 	public function route404Action(){

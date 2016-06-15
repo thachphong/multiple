@@ -43,16 +43,22 @@
 			      </select>	
 			</div>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-1">
 			<div class="form-group" >
 				<br />
 				<button id="btn_search" class="btn btn-success" name="search">Tìm</button>				
 			</div>			
 		</div>
-		<div class="col-md-2">			
+		<div class="col-md-1">			
 			<div class="form-group" >
 				<br />				
-				<button  id="btn_download" class="btn btn-success" name="search">Download Tin</button>
+				<button  id="btn_download" class="btn btn-info" name="search">Download Tin</button>
+			</div>
+		</div>
+		<div class="col-md-1" >			
+			<div class="form-group" >
+				<br />				
+				<button  style="margin-left: 10px" id="btn_again" class="btn btn-success" name="search">Load lại tin</button>
 			</div>
 		</div>
 		
@@ -107,6 +113,17 @@ $(document).ready(function(){
 	});	
 	$(document).on('click','#btn_download',function(){
         Pho_json_ajax('POST',"{{url.get('download/dlall')}}" ,{ menu_id: $('#sreach_menu').val()	},function(data){
+            if(data.status =='OK'){
+                Pho_message_box('Thông báo',data.msg,function(){
+                	//$('.selected').click();
+                }); 
+            }else{
+                Pho_message_box_error('Lỗi',data.msg);
+            }
+        });
+    });
+    $(document).on('click','#btn_again',function(){
+        Pho_json_ajax('POST',"{{url.get('download/dlagain')}}" ,{ menu_id: $('#sreach_menu').val()	},function(data){
             if(data.status =='OK'){
                 Pho_message_box('Thông báo',data.msg,function(){
                 	//$('.selected').click();
