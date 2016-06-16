@@ -56,8 +56,8 @@ class Posts extends Model
     public function get_by_menu($menu_id,$limit = 6,$offet=0){        
         $data = Posts::query()
                 ->where("status = 1")  
-                ->addwhere("menu_id = :menu_id:") 
-                ->bind(array("menu_id" => $menu_id)) 
+                ->addwhere("menu_id in ( $menu_id )") 
+               // ->bind(array("menu_id" => $menu_id)) 
                 ->order("id desc")
                 ->limit(array($limit,$offet))
                // ->offset(1)                 
@@ -108,8 +108,8 @@ class Posts extends Model
     }
     public function get_totalrow($menu_id){
     	$pql = "SELECT count(*) cnt FROM Multiple\Models\Posts Posts
-    			where status = 1 and menu_id = :menu_id:";
-		$total = $this->modelsManager->executeQuery($pql,array( 'menu_id' => $menu_id));
+    			where status = 1 and menu_id in ( $menu_id )";
+		$total = $this->modelsManager->executeQuery($pql);
 		//$total = $manager->executeQuery($phql);
 		/*foreach($total as $row){
 			return $row->cnt;

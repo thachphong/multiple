@@ -198,6 +198,7 @@ class DownloadController extends Controller
 						$dltemp->link_dl = $link['link'];
 						$dltemp->status = 0;
 						$dltemp->caption = $link['title'];
+						$dltemp->img_link = $link['img_link'];
 						$dltemp->menu_id = $item->menu_id;
 						$this->logger->info('dl_link: '.$dltemp->link_dl);
 						$dltemp->save();
@@ -207,9 +208,9 @@ class DownloadController extends Controller
             $temp = new DownloadTemp();
             $list=$temp->get_All(0,$item->menu_id);
             foreach($list as $row){
-				if($this->download_by_link($row->link_dl,$item->menu_id))
+				if($this->download_by_link($row->link_dl,$item->menu_id,$row->img_link))
 	            {
-						//$this->logger->info('---------5');
+						//$this->logger->info('---------5:'.$row->img_link);
 						//$dltemp->link_dl = $link['link'];
 						$row->status = 1;
 						//$dltemp->caption = $link['title'];
@@ -254,7 +255,7 @@ class DownloadController extends Controller
         $this->response->setJsonContent($result);
         return $this->response;
 	}
-	public function download_by_link($url,$menu_id){
+	public function download_by_link($url,$menu_id,$img_link = ''){
 		$dl = new AutoDownload();
             $structure= new DownloadStructure();
                         
@@ -279,8 +280,12 @@ class DownloadController extends Controller
                 	//$this->logger->info('title');
                     $title = $dl->GetTitle($row->xpath);
                 }else if($row->key =='image'){   
-                	//$this->logger->info('image');             
-                    $file_name = $dl->get_img($row->xpath,$match[0]);
+                	//$this->logger->info('image'); 
+                	if($img_link ==''){
+						$file_name = $dl->get_img($row->xpath,$match[0]);
+					}else{
+						$file_name = $dl->get_img_byurl($img_link);
+					}
                 }else if($row->key=='del'){
                 	//$this->logger->info('del'); 
                     $dl->remove_element($row->xpath,$row->element_remove); 
@@ -336,13 +341,18 @@ class DownloadController extends Controller
 				//$this->logger->info($add_date);
 				//$this->logger->info($add_time);
 			}
+			$file_size = filesize(IMG_DATA_PATH.'/'.$file_name);
+			$status = 0 ;
+			if($file_size > 0){
+				$status =1 ;
+			}
     	    $file_ext=	pathinfo($file_name,PATHINFO_EXTENSION);
     	    $title = html_entity_decode($title);
     		$post = new Posts();
     	    $post->caption = $title;
     	    $post->caption_url = $this->to_slug($title);
             $post->filename = $file_name;       
-    	    $post->size = 0;
+    	    $post->size = $file_size;
     	    $post->type = 'blog';
     	    $post->resource = $resource;
     	    $post->adduser= 1;
@@ -351,6 +361,7 @@ class DownloadController extends Controller
             $post->menu_id = $menu_id;
             $post->add_date = $add_date;
             $post->add_time = $add_time;
+            $post->status = $status;
     	    $post->save(); 
     	    
     	    $tags_model = new Tags();

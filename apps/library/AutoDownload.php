@@ -177,18 +177,22 @@ class AutoDownload
         foreach($arr_con as $item){
             $elements = $this->sdom->find($item);    
             $this->log->info('item: '.$item);        
-    		foreach ($elements as $element) {                
-                $data['link'] = $element->href ;
-                if(strlen($url)>0){
-					if(strpos($url,$data['link']) === FALSE){
-						$data['link'] = $url.$data['link'];
+    		foreach ($elements as $element) {   
+    			$img = $element->find('img',0);  
+    			if($img != NULL){
+	                $data['link'] = $element->href ;  
+	                $this->log->info('img: '.$img->src); 
+	                $data['img_link'] = preg_replace('/[\?].+/','', $img->src);              
+	                if(strlen($url)>0){
+						if(strpos($url,$data['link']) === FALSE){
+							$data['link'] = $url.$data['link'];
+						}
 					}
-				}
-                $data['title'] = $element->title ;
-                if(isset($data['title']) && strlen($data['title']) > 0){
-					$result[] = $data;	
-				}
-                
+	                $data['title'] = $element->title ;
+	                if(isset($data['title']) && strlen($data['title']) > 0){
+						$result[] = $data;	
+					}
+                }
     		}    
         }  
         return  $result;
@@ -225,7 +229,7 @@ class AutoDownload
     }
     public function get_img_byurl($src)
     {
-         $year = date('Y');
+        $year = date('Y');
         $month = date('m');
         $y_path = IMG_DATA_PATH.'/'. $year;
         $m_path = $y_path .'/'. $month;

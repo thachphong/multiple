@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $request = $_REQUEST;
         $rowtop = 6;
        // $page = 1;
-        $total = 10 ;
+        $total = 20 ;
         $totalpage = 1;
         
         
@@ -25,12 +25,16 @@ class CategoryController extends Controller
         $to = $page*$total;
         
         $menu = Menu::findFirst(array("no = :no:  AND status = 1 ",'bind' => array('no' => $ctg_no) ));
-        
-        $totalrow = $db->get_totalrow($menu->id);
+        $db_menu = new Menu();
+        $list_id = $db_menu->get_all_child($ctg_no);
+        if($list_id == NULL){
+			$list_id= $menu->id;
+		}
+        $totalrow = $db->get_totalrow($list_id);
         $totalpage = ceil(($totalrow - $rowtop) /$total);
         
-        $datatop = $db->get_by_menu($menu->id,$rowtop,0);
-        $datadetail = $db->get_by_menu($menu->id,$total,$from + $rowtop);
+        $datatop = $db->get_by_menu($list_id,$rowtop,0);
+        $datadetail = $db->get_by_menu($list_id,$total,$from + $rowtop);
         $this->view->title = $menu->title;
         $this->view->page_no = $ctg_no;
         $this->view->menu_id = $menu->id;
