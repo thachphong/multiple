@@ -17,6 +17,7 @@ class DownloadStructure extends Model
     public $sort;
     public $ctg_flg;
     public $dl_category_id;
+    public $stop_flg;
         
     public function initialize()
     {
@@ -26,7 +27,8 @@ class DownloadStructure extends Model
         //$data = DownloadStructure::find(array('ref_link'=>$reflink,  "order" => "sort"));
         $data = DownloadStructure::query()
                 ->where("ref_link = :ref_link:")  
-                ->addwhere("ctg_flg = :ctg_flg:")             
+                ->addwhere("ctg_flg = :ctg_flg:") 
+                ->addwhere("stop_flg = 0 ")              
                 ->bind(array("ref_link" => $reflink,'ctg_flg'=>$ctg_flg))
                 ->order("sort")
                 ->execute();
@@ -36,7 +38,8 @@ class DownloadStructure extends Model
         //$data = DownloadStructure::find(array('ref_link'=>$reflink,  "order" => "sort"));
         $data = DownloadStructure::query()
                 ->where("ref_link = :ref_link:")  
-                ->addwhere("ctg_flg = 1")
+                ->addwhere("ctg_flg = 1 ")
+                ->addwhere("stop_flg = 0 ")  
                 ->addwhere("dl_category_id = :dl_category_id:")
                 ->bind(array("ref_link" => $reflink,'dl_category_id' =>$dl_category_id))
                 ->order("sort")

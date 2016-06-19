@@ -221,7 +221,7 @@ class AutoDownload
         if( strpos($src, 'http')===FALSE){
 			$src = $url.$src ;
 		}
-		
+		$src = str_replace(' ','%20',$src);
         $data = $this->GetData_Url($src);
         //var_dump($data); 
         $this->file_save($data,$file_full);
@@ -243,6 +243,7 @@ class AutoDownload
         $extension = pathinfo($src, PATHINFO_EXTENSION);
         $file_name = $year.'/'.$month.'/'. uniqid(TRUE).'.'.$extension;
         $file_full = IMG_DATA_PATH.'/'.$file_name;
+        $src = str_replace(' ','%20',$src);
         $data = $this->GetData_Url($src);        
         $this->file_save($data,$file_full);
         return $file_name;

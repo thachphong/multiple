@@ -18,7 +18,7 @@ class Posts extends Model
     public $status;
     public $adduser;
     public $youtube_key;
-    public $url;
+    public $dl_temp_id;
     public $total_view;
     public $total_vote;
     public $add_date;
@@ -58,7 +58,7 @@ class Posts extends Model
                 ->where("status = 1")  
                 ->addwhere("menu_id in ( $menu_id )") 
                // ->bind(array("menu_id" => $menu_id)) 
-                ->order("id desc")
+                ->order("add_date desc,add_time desc")
                 ->limit(array($limit,$offet))
                // ->offset(1)                 
                 ->execute();
@@ -75,7 +75,7 @@ class Posts extends Model
                 ->addwhere("type = :type:")    
                 ->addwhere("id < $id")  
                 ->bind(array("type" => $type))
-                ->order("id desc")
+                ->order("add_date desc,add_time desc")
                 ->limit(5)
                 ->execute();
         return $data;
@@ -84,7 +84,7 @@ class Posts extends Model
         $data = Posts::query()
                 ->where("menu_id = $menu_id ")               
                 ->addwhere("id <> $id") 
-                ->order("id desc")
+                ->order("add_date desc,add_time desc")
                 ->limit(9)
                 ->execute();
         return $data;
@@ -143,7 +143,7 @@ class Posts extends Model
 				where  (REPLACE(caption_url,'-',' ') like :keysearch:  or 
 				caption like :keysearch:)
 				and status=1
-				ORDER BY id DESC
+				ORDER BY add_date desc,add_time desc
 				limit $limit
 				OFFSET $offet";
 		$data = $this->modelsManager->executeQuery($pql,array( 'keysearch' => '%'.$keysearch.'%'));    

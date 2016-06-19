@@ -240,7 +240,7 @@ class DownloadController extends Controller
             $temp = new DownloadTemp();
             $list=$temp->get_All(0,$item->menu_id);
             foreach($list as $row){
-				if($this->download_by_link($row->link_dl,$item->menu_id))
+				if($this->download_by_link($row->link_dl,$item->menu_id,$row->img_link))
 	            {
 						//$this->logger->info('---------5');
 						//$dltemp->link_dl = $link['link'];
